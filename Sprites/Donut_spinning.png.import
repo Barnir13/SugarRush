@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://556x13l47oe7"
-path="res://.godot/imported/SpriteSheet.png-e5e16b6244041a7cf14a325c9619fd7e.ctex"
+uid="uid://c3fvhhocljlx2"
+path="res://.godot/imported/Donut_spinning.png-d7b413b6701198e9414cab0ff9e86baf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-e5e16b6244041a7cf14a325c9619fd7e.ctex"]
+source_file="res://Sprites/Donut_spinning.png"
+dest_files=["res://.godot/imported/Donut_spinning.png-d7b413b6701198e9414cab0ff9e86baf.ctex"]
 
 [params]
 

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dqtpogolv33gt"]
+
+[ext_resource type="Script" uid="uid://q3h6q4m6dgmu" path="res://Scripts/cookie.gd" id="1_olt43"]
+[ext_resource type="Texture2D" uid="uid://c4k768hw7wpk2" path="res://Sprites/Cookie_spinning.png" id="2_olt43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78qtf"]
+atlas = ExtResource("2_olt43")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2osoo"]
+atlas = ExtResource("2_olt43")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbikh"]
+atlas = ExtResource("2_olt43")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fydl2"]
+atlas = ExtResource("2_olt43")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyvpu"]
+atlas = ExtResource("2_olt43")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6a3y"]
+atlas = ExtResource("2_olt43")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchwu"]
+atlas = ExtResource("2_olt43")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73fih"]
+atlas = ExtResource("2_olt43")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73fih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78qtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2osoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fydl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyvpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6a3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73fih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olt43"]
+radius = 8.0
+
+[node name="Cookie" type="Area2D" unique_id=1132858967]
+script = ExtResource("1_olt43")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1921337012]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=353707349]
+sprite_frames = SubResource("SpriteFrames_73fih")
+autoplay = "default"
+frame_progress = 0.21579881
+speed_scale = 2.0
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=933031468]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_olt43")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
