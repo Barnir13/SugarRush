@@ -14,10 +14,9 @@ point_count = 2
 size = Vector2(23, 7)
 
 [node name="movingPlatform" type="Path2D" unique_id=330981816 node_paths=PackedStringArray("path_follow_2D")]
+light_mask = 256
 curve = SubResource("Curve2D_s1svh")
 script = ExtResource("1_nxhtq")
-ease = 2
-transation = 4
 path_follow_2D = NodePath("PathFollow2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=555326553]

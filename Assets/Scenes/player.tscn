@@ -23,7 +23,7 @@ root_node = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596693999]
 offset = Vector2(35, -30)
-zoom = Vector2(4, 4)
+zoom = Vector2(3.2, 3.2)
 position_smoothing_speed = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856325398]

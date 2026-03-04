@@ -149,35 +149,34 @@ layer_0/tile_data = PackedInt32Array(-262143, 0, 0, -327677, 0, 0, -327676, 0, 5
 
 [node name="Player" parent="TileMap" unique_id=1585269501 instance=ExtResource("2_vle8b")]
 position = Vector2(22, -80)
-
-[node name="movingPlatform" parent="TileMap" unique_id=330981816 instance=ExtResource("3_ukqll")]
-position = Vector2(307.81628, -149.645)
-scale = Vector2(0.9967466, 1)
-curve = SubResource("Curve2D_ewdlg")
+jump_power = null
 
 [node name="breaking_platform" parent="." unique_id=1255920530 instance=ExtResource("4_5dqia")]
-position = Vector2(248, -108)
+position = Vector2(249, -108)
 
 [node name="breaking_platform2" parent="." unique_id=1971064883 instance=ExtResource("5_o0kme")]
-position = Vector2(280, -42)
+position = Vector2(280.24008, -42.576984)
 
 [node name="spike" parent="." unique_id=203801123 instance=ExtResource("4_o037k")]
 position = Vector2(280, -8)
 
 [node name="spike2" parent="." unique_id=38714620 instance=ExtResource("4_o037k")]
-position = Vector2(488, -39)
+position = Vector2(488, -38.557163)
 
 [node name="Cookie" parent="." unique_id=1132858967 instance=ExtResource("7_8bq78")]
-position = Vector2(128, -180)
+position = Vector2(128.89342, -180)
 
 [node name="donut" parent="." unique_id=2088514949 instance=ExtResource("8_qd6it")]
-position = Vector2(89, -92)
+position = Vector2(88.38509, -92.66361)
 
 [node name="candy" parent="." unique_id=2096765332 instance=ExtResource("9_ewdlg")]
 position = Vector2(521, -56)
 
 [node name="breaking_platform3" parent="." unique_id=1660787562 instance=ExtResource("4_5dqia")]
-position = Vector2(224, -246)
+position = Vector2(233, -235)
 
-[node name="breaking_platform4" parent="." unique_id=7913013 instance=ExtResource("4_5dqia")]
-position = Vector2(152, -43)
+[node name="movingPlatform" parent="." unique_id=330981816 instance=ExtResource("3_ukqll")]
+position = Vector2(309.0211, -149.8988)
+rotation = 0.0052359877
+scale = Vector2(0.9951486, 1)
+curve = SubResource("Curve2D_ewdlg")
