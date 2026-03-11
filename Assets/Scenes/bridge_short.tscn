@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dm1jegb4iwt7v"]
+
+[ext_resource type="Texture2D" uid="uid://b46q1p8ukdd11" path="res://Sprites/decors.png" id="1_6u7lc"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1123942401]
+collision_layer = 256
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=210018358]
+texture = ExtResource("1_6u7lc")
+region_enabled = true
+region_rect = Rect2(80, 32, 32, 8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=830390889]
+position = Vector2(0.015625, 0.0078125)
+polygon = PackedVector2Array(5.9804363, -3.006959, 10.006823, -3.9747539, 15.984375, -3.953125, 15.950536, 3.0189266, 9.988562, 3.0097969, 5.971306, 4.0049806, -5.9891634, 4.0049806, -9.988159, 3.018927, -15.9453125, 3.0078125, -15.9921875, -4.0078125, -9.99729, -4.002142, -5.998291, -2.9613066)

@@ -5,10 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bre2wiwsyrupg" path="res://Assets/Scenes/moving_platform.tscn" id="3_ukqll"]
 [ext_resource type="PackedScene" uid="uid://cn4pr656m0pmt" path="res://Assets/Scenes/breaking_platform_purple_1.tscn" id="4_5dqia"]
 [ext_resource type="PackedScene" uid="uid://dfsehbseml0lg" path="res://Assets/Scenes/spike.tscn" id="4_o037k"]
-[ext_resource type="PackedScene" uid="uid://d2uvo7jj674o" path="res://Assets/Scenes/breaking_platform_vanille_1.tscn" id="5_o0kme"]
 [ext_resource type="PackedScene" uid="uid://dqtpogolv33gt" path="res://Assets/Scenes/cookie.tscn" id="7_8bq78"]
 [ext_resource type="PackedScene" uid="uid://b7dk3tkh66go6" path="res://Assets/Scenes/donut.tscn" id="8_qd6it"]
 [ext_resource type="PackedScene" uid="uid://cdlundc8levw3" path="res://Assets/Scenes/candy.tscn" id="9_ewdlg"]
+[ext_resource type="PackedScene" uid="uid://cnlrwi1p11qou" path="res://Assets/Scenes/deathzone.tscn" id="10_2ldho"]
+[ext_resource type="PackedScene" uid="uid://ej6nxehhcwud" path="res://Assets/Scenes/bridge_long.tscn" id="10_oid8y"]
+[ext_resource type="PackedScene" uid="uid://dm1jegb4iwt7v" path="res://Assets/Scenes/bridge_short.tscn" id="11_oid8y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vle8b"]
 texture = ExtResource("1_s8650")
@@ -151,21 +153,21 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_oid8y"]
+[sub_resource type="Curve2D" id="Curve2D_aqxam"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 326.0974, 238.42465, 0, 0, 0, 0, 294.49005, 238.22269)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_2ldho"]
+[sub_resource type="Curve2D" id="Curve2D_ip0as"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 297.3039, 242.00127)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ewdlg"]
+[sub_resource type="Curve2D" id="Curve2D_8jifc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 189.02927, 2.074936, 0, 0, 0, 0, 236.87112, -27.833542)
@@ -185,16 +187,13 @@ layer_0/tile_data = PackedInt32Array(-327677, 0, 0, -327676, 0, 5, -327675, 0, 0
 [node name="Player" parent="TileMap" unique_id=1585269501 instance=ExtResource("2_vle8b")]
 position = Vector2(22, -80)
 
-[node name="breaking_platform" parent="." unique_id=1255920530 instance=ExtResource("4_5dqia")]
-position = Vector2(85, -145)
-
-[node name="breaking_platform2" parent="." unique_id=1971064883 instance=ExtResource("5_o0kme")]
-position = Vector2(329.72134, -72.23904)
-
 [node name="Platforms" type="Container" parent="." unique_id=1677878524]
 offset_top = -4.0
 offset_right = 40.0
 offset_bottom = 36.0
+
+[node name="breaking_platform" parent="Platforms" unique_id=1255920530 instance=ExtResource("4_5dqia")]
+position = Vector2(85, -141)
 
 [node name="movingPlatform6" parent="Platforms" unique_id=330981816 instance=ExtResource("3_ukqll")]
 position = Vector2(1314.234, -457.61575)
@@ -214,17 +213,17 @@ curve = SubResource("Curve2D_g6qwd")
 [node name="movingPlatform3" parent="Platforms" unique_id=810768071 instance=ExtResource("3_ukqll")]
 position = Vector2(522.5979, -391.1649)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_oid8y")
+curve = SubResource("Curve2D_aqxam")
 
 [node name="movingPlatform2" parent="Platforms" unique_id=1482834980 instance=ExtResource("3_ukqll")]
 position = Vector2(598.6401, -299.29007)
 scale = Vector2(0.88032115, 1)
-curve = SubResource("Curve2D_2ldho")
+curve = SubResource("Curve2D_ip0as")
 
 [node name="movingPlatform" parent="Platforms" unique_id=1339082658 instance=ExtResource("3_ukqll")]
 position = Vector2(333.53738, -152.5028)
 scale = Vector2(0.88319445, 1)
-curve = SubResource("Curve2D_ewdlg")
+curve = SubResource("Curve2D_8jifc")
 
 [node name="Spikes" type="Container" parent="." unique_id=1898715271]
 offset_left = 488.0
@@ -267,3 +266,12 @@ position = Vector2(113.96579, -140.72238)
 
 [node name="candy" parent="." unique_id=2096765332 instance=ExtResource("9_ewdlg")]
 position = Vector2(873.23236, -205.36244)
+
+[node name="Deathzone" parent="." unique_id=1282808801 instance=ExtResource("10_2ldho")]
+position = Vector2(3.7410278, 74.93277)
+
+[node name="StaticBody2D" parent="." unique_id=1516768458 instance=ExtResource("10_oid8y")]
+position = Vector2(328.2731, -61.905052)
+
+[node name="StaticBody2D2" parent="." unique_id=1123942401 instance=ExtResource("11_oid8y")]
+position = Vector2(448.14063, -29.737293)

@@ -22,6 +22,9 @@ var _speed_id := 0
 
 @onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D") # ha van, tudunk effektet adni
 
+func respawn():
+	self.global_position = Vector2(40,-130)
+
 func _ready() -> void:
 	jumps_left = max_jumps
 
