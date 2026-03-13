@@ -133,42 +133,42 @@ physics_layer_0/collision_layer = 256
 physics_layer_1/collision_layer = 512
 sources/0 = SubResource("TileSetAtlasSource_vle8b")
 
-[sub_resource type="Curve2D" id="Curve2D_wp53d"]
+[sub_resource type="Curve2D" id="Curve2D_ycan5"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 296.96338, 260.2569)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ycan5"]
+[sub_resource type="Curve2D" id="Curve2D_g6qwd"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 422.5896, 254.99301)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_g6qwd"]
+[sub_resource type="Curve2D" id="Curve2D_aqxam"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 358.81067, 304.96582)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_aqxam"]
+[sub_resource type="Curve2D" id="Curve2D_ip0as"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 326.0974, 238.42465, 0, 0, 0, 0, 294.49005, 238.22269)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ip0as"]
+[sub_resource type="Curve2D" id="Curve2D_8jifc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 297.3039, 242.00127)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_8jifc"]
+[sub_resource type="Curve2D" id="Curve2D_yxbg1"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 189.02927, 2.074936, 0, 0, 0, 0, 236.87112, -27.833542)
@@ -178,8 +178,8 @@ point_count = 2
 [node name="Map1" type="Node2D" unique_id=1476094318]
 position = Vector2(17, -10)
 
-[node name="Chest" parent="." unique_id=661221208 instance=ExtResource("12_wp53d")]
-position = Vector2(104.47872, -92.13514)
+[node name="Chest" parent="." unique_id=1582679735 instance=ExtResource("12_wp53d")]
+position = Vector2(104.477135, -92.46595)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1153029754]
 position = Vector2(0, -4)
@@ -202,32 +202,32 @@ position = Vector2(85, -141)
 [node name="movingPlatform6" parent="Platforms" unique_id=330981816 instance=ExtResource("3_ukqll")]
 position = Vector2(1314.234, -457.61575)
 scale = Vector2(0.6005711, 1)
-curve = SubResource("Curve2D_wp53d")
+curve = SubResource("Curve2D_ycan5")
 
 [node name="movingPlatform5" parent="Platforms" unique_id=1697431084 instance=ExtResource("3_ukqll")]
 position = Vector2(1155.6221, -454.33267)
 scale = Vector2(0.68221825, 1)
-curve = SubResource("Curve2D_ycan5")
+curve = SubResource("Curve2D_g6qwd")
 
 [node name="movingPlatform4" parent="Platforms" unique_id=1170726266 instance=ExtResource("3_ukqll")]
 position = Vector2(881.8721, -386.9295)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_g6qwd")
+curve = SubResource("Curve2D_aqxam")
 
 [node name="movingPlatform3" parent="Platforms" unique_id=810768071 instance=ExtResource("3_ukqll")]
 position = Vector2(522.5979, -391.1649)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_aqxam")
+curve = SubResource("Curve2D_ip0as")
 
 [node name="movingPlatform2" parent="Platforms" unique_id=1482834980 instance=ExtResource("3_ukqll")]
 position = Vector2(598.6401, -299.29007)
 scale = Vector2(0.88032115, 1)
-curve = SubResource("Curve2D_ip0as")
+curve = SubResource("Curve2D_8jifc")
 
 [node name="movingPlatform" parent="Platforms" unique_id=1339082658 instance=ExtResource("3_ukqll")]
 position = Vector2(333.53738, -152.5028)
 scale = Vector2(0.88319445, 1)
-curve = SubResource("Curve2D_8jifc")
+curve = SubResource("Curve2D_yxbg1")
 
 [node name="Spikes" type="Container" parent="." unique_id=1898715271]
 offset_left = 488.0
