@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://d11eug4xqy2kd" path="res://Sprites/waffle/waffle_death.png" id="1_n57et"]
 [ext_resource type="Texture2D" uid="uid://dkydc7r3r1o71" path="res://Sprites/waffle/waffle_walk_right.png" id="2_n57et"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvemq"]
+radius = 8.584656
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vo1qd"]
 atlas = ExtResource("1_n57et")
 region = Rect2(0, 0, 21, 18)
@@ -116,18 +119,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvemq"]
-size = Vector2(15.061247, 2.6199417)
+size = Vector2(13.034449, 2.6199417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo1qd"]
-size = Vector2(18.130331, 14.379226)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kvemq"]
-radius = 8.094693
+size = Vector2(18.130331, 14.549931)
 
 [node name="Waffle" type="CharacterBody2D" unique_id=1674559987]
 collision_layer = 2
 collision_mask = 257
 script = ExtResource("1_kvemq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053192206]
+shape = SubResource("CircleShape2D_kvemq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866958946]
 texture_filter = 1
@@ -143,16 +146,14 @@ autostart = true
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox" unique_id=849092745]
-position = Vector2(0.2580328, -7.362191)
+position = Vector2(0.06860638, -7.362191)
 shape = SubResource("RectangleShape2D_kvemq")
 
 [node name="SideHitbox" type="Area2D" parent="." unique_id=577376167]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideHitbox" unique_id=653897872]
-position = Vector2(0.43884754, 1.5924544)
+position = Vector2(0.43884754, 1.507102)
 shape = SubResource("RectangleShape2D_vo1qd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053192206]
-shape = SubResource("CircleShape2D_kvemq")
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]

@@ -10,46 +10,47 @@
 [ext_resource type="PackedScene" uid="uid://cdlundc8levw3" path="res://Assets/Scenes/candy.tscn" id="9_ewdlg"]
 [ext_resource type="PackedScene" uid="uid://cnlrwi1p11qou" path="res://Assets/Scenes/deathzone.tscn" id="10_2ldho"]
 [ext_resource type="PackedScene" uid="uid://ej6nxehhcwud" path="res://Assets/Scenes/bridge_long.tscn" id="10_oid8y"]
+[ext_resource type="PackedScene" uid="uid://dt0yh5rjgt1x" path="res://Assets/Scenes/milk.tscn" id="11_g6qwd"]
 [ext_resource type="PackedScene" uid="uid://dm1jegb4iwt7v" path="res://Assets/Scenes/bridge_short.tscn" id="11_oid8y"]
 [ext_resource type="PackedScene" uid="uid://rpy67qkxjvqu" path="res://Assets/Scenes/chest.tscn" id="12_wp53d"]
 [ext_resource type="PackedScene" uid="uid://dou1g41a56svu" path="res://Assets/Scenes/waffle.tscn" id="13_ycan5"]
 
-[sub_resource type="Curve2D" id="Curve2D_ycan5"]
+[sub_resource type="Curve2D" id="Curve2D_aqxam"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 296.96338, 260.2569)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_g6qwd"]
+[sub_resource type="Curve2D" id="Curve2D_ip0as"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 422.5896, 254.99301)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_aqxam"]
+[sub_resource type="Curve2D" id="Curve2D_8jifc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 358.81067, 304.96582)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ip0as"]
+[sub_resource type="Curve2D" id="Curve2D_yxbg1"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 326.0974, 238.42465, 0, 0, 0, 0, 294.49005, 238.22269)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_8jifc"]
+[sub_resource type="Curve2D" id="Curve2D_ciglb"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 297.3039, 242.00127)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_yxbg1"]
+[sub_resource type="Curve2D" id="Curve2D_ars06"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 189.02927, 2.074936, 0, 0, 0, 0, 236.87112, -27.833542)
@@ -194,32 +195,32 @@ position = Vector2(102, -155)
 [node name="movingPlatform6" parent="platforms tiles" unique_id=330981816 instance=ExtResource("3_ukqll")]
 position = Vector2(1331.234, -471.61575)
 scale = Vector2(0.6005711, 1)
-curve = SubResource("Curve2D_ycan5")
+curve = SubResource("Curve2D_aqxam")
 
 [node name="movingPlatform5" parent="platforms tiles" unique_id=1697431084 instance=ExtResource("3_ukqll")]
 position = Vector2(1172.6221, -468.33267)
 scale = Vector2(0.68221825, 1)
-curve = SubResource("Curve2D_g6qwd")
+curve = SubResource("Curve2D_ip0as")
 
 [node name="movingPlatform4" parent="platforms tiles" unique_id=1170726266 instance=ExtResource("3_ukqll")]
 position = Vector2(898.8721, -400.9295)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_aqxam")
+curve = SubResource("Curve2D_8jifc")
 
 [node name="movingPlatform3" parent="platforms tiles" unique_id=810768071 instance=ExtResource("3_ukqll")]
 position = Vector2(539.5979, -405.1649)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_ip0as")
+curve = SubResource("Curve2D_yxbg1")
 
 [node name="movingPlatform2" parent="platforms tiles" unique_id=1482834980 instance=ExtResource("3_ukqll")]
 position = Vector2(615.6401, -313.29007)
 scale = Vector2(0.88032115, 1)
-curve = SubResource("Curve2D_8jifc")
+curve = SubResource("Curve2D_ciglb")
 
 [node name="movingPlatform" parent="platforms tiles" unique_id=1339082658 instance=ExtResource("3_ukqll")]
 position = Vector2(350.53738, -166.5028)
 scale = Vector2(0.88319445, 1)
-curve = SubResource("Curve2D_yxbg1")
+curve = SubResource("Curve2D_ars06")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1153029754]
 position = Vector2(0, -4)
@@ -269,7 +270,10 @@ position = Vector2(448.14063, -29.737293)
 [node name="Enemies2" type="Node2D" parent="." unique_id=2083626190]
 
 [node name="Waffle" parent="Enemies2" unique_id=2025800198 instance=ExtResource("13_ycan5")]
-position = Vector2(598.94745, -73.88748)
+position = Vector2(598.9742, -73.64687)
+
+[node name="milk" parent="Enemies2" unique_id=647387810 instance=ExtResource("11_g6qwd")]
+position = Vector2(248.31485, -74.688156)
 
 [node name="Collectables" type="Node2D" parent="." unique_id=1263789092]
 
