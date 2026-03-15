@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxyttfql7ahx7"
-path="res://.godot/imported/breakingPLat_vanille_1.png-a8d63548f532135b673dd2e056d3a4a3.ctex"
+uid="uid://cv3lwjircwouj"
+path="res://.godot/imported/waffle_walk_left.png-1431a92c5caf545ce1a011214be741a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/breakingPLat_vanille_1.png"
-dest_files=["res://.godot/imported/breakingPLat_vanille_1.png-a8d63548f532135b673dd2e056d3a4a3.ctex"]
+source_file="res://Sprites/waffle/waffle_walk_left.png"
+dest_files=["res://.godot/imported/waffle_walk_left.png-1431a92c5caf545ce1a011214be741a3.ctex"]
 
 [params]
 

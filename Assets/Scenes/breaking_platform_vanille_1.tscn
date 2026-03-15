@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2uvo7jj674o"]
 
 [ext_resource type="Script" uid="uid://x1jbtrjcqmo2" path="res://Scripts/breaking_platform.gd" id="1_am1j2"]
-[ext_resource type="Texture2D" uid="uid://dxyttfql7ahx7" path="res://Sprites/breakingPLat_vanille_1.png" id="2_am1j2"]
+[ext_resource type="Texture2D" uid="uid://dxyttfql7ahx7" path="res://Sprites/tiles platforms/breakingPLat_vanille_1.png" id="2_am1j2"]
 
 [sub_resource type="Animation" id="Animation_csu6h"]
 length = 0.001

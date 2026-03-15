@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cney05ti5gtpf"
-path="res://.godot/imported/Tiles.png-1724ca9071b36ee0fbf5d5c2eb04d9f4.ctex"
+uid="uid://d11eug4xqy2kd"
+path="res://.godot/imported/waffle_death.png-be466e9435d8edd9ddc947424977b659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-1724ca9071b36ee0fbf5d5c2eb04d9f4.ctex"]
+source_file="res://Sprites/waffle/waffle_death.png"
+dest_files=["res://.godot/imported/waffle_death.png-be466e9435d8edd9ddc947424977b659.ctex"]
 
 [params]
 

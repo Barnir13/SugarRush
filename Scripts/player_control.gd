@@ -26,6 +26,7 @@ func respawn():
 	self.global_position = Vector2(40,-130)
 
 func _ready() -> void:
+	add_to_group("Player")
 	jumps_left = max_jumps
 
 func enable_double_jump(duration: float) -> void:

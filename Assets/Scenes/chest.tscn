@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rpy67qkxjvqu"]
 
-[ext_resource type="Texture2D" uid="uid://cdt0jtbhwop3m" path="res://Sprites/chest_closed.png" id="1_gj6j2"]
-[ext_resource type="Texture2D" uid="uid://cxj83y7f34p30" path="res://Sprites/chest_open.png" id="2_bqu46"]
+[ext_resource type="Texture2D" uid="uid://cdt0jtbhwop3m" path="res://Sprites/chest/chest_closed.png" id="1_gj6j2"]
+[ext_resource type="Texture2D" uid="uid://cxj83y7f34p30" path="res://Sprites/chest/chest_open.png" id="2_bqu46"]
 [ext_resource type="Script" uid="uid://o58l3i6yoqtr" path="res://Scripts/chest.gd" id="3_bqu46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gj6j2"]

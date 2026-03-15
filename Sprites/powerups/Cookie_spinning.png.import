@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd32sxlbh24pc"
-path="res://.godot/imported/movingPlat_ALL.png-4b17e279ace7641ffb65d8715f5e31bb.ctex"
+uid="uid://c4k768hw7wpk2"
+path="res://.godot/imported/Cookie_spinning.png-7155d9e77a092bfe686d09cc8e80ff23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/movingPlat_ALL.png"
-dest_files=["res://.godot/imported/movingPlat_ALL.png-4b17e279ace7641ffb65d8715f5e31bb.ctex"]
+source_file="res://Sprites/powerups/Cookie_spinning.png"
+dest_files=["res://.godot/imported/Cookie_spinning.png-7155d9e77a092bfe686d09cc8e80ff23.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3fvhhocljlx2"
-path="res://.godot/imported/Donut_spinning.png-d7b413b6701198e9414cab0ff9e86baf.ctex"
+uid="uid://cxj83y7f34p30"
+path="res://.godot/imported/chest_open.png-da2e05fc98fa4f474de749dd0713ea2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Donut_spinning.png"
-dest_files=["res://.godot/imported/Donut_spinning.png-d7b413b6701198e9414cab0ff9e86baf.ctex"]
+source_file="res://Sprites/chest/chest_open.png"
+dest_files=["res://.godot/imported/chest_open.png-da2e05fc98fa4f474de749dd0713ea2d.ctex"]
 
 [params]
 

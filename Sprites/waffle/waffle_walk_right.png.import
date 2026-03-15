@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4k768hw7wpk2"
-path="res://.godot/imported/Cookie_spinning.png-32dfda8e8fd9aa1ea5002fc7c06726fe.ctex"
+uid="uid://dkydc7r3r1o71"
+path="res://.godot/imported/waffle_walk_right.png-7c29f145712dc6965bb299f5b566d0e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cookie_spinning.png"
-dest_files=["res://.godot/imported/Cookie_spinning.png-32dfda8e8fd9aa1ea5002fc7c06726fe.ctex"]
+source_file="res://Sprites/waffle/waffle_walk_right.png"
+dest_files=["res://.godot/imported/waffle_walk_right.png-7c29f145712dc6965bb299f5b566d0e3.ctex"]
 
 [params]
 

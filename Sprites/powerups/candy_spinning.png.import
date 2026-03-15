@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0k5gwegmweee"
-path="res://.godot/imported/candy_spinning2.png-5882cfbe36beab4e84b8490512ea5131.ctex"
+uid="uid://bofutykbcgdxu"
+path="res://.godot/imported/candy_spinning.png-e334d6fd36a59f0f4c8895b7bb958f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/candy_spinning2.png"
-dest_files=["res://.godot/imported/candy_spinning2.png-5882cfbe36beab4e84b8490512ea5131.ctex"]
+source_file="res://Sprites/powerups/candy_spinning.png"
+dest_files=["res://.godot/imported/candy_spinning.png-e334d6fd36a59f0f4c8895b7bb958f69.ctex"]
 
 [params]
 

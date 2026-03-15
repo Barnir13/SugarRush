@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bre2wiwsyrupg"]
 
-[ext_resource type="Texture2D" uid="uid://dd32sxlbh24pc" path="res://Sprites/movingPlat_ALL.png" id="1_1itx5"]
+[ext_resource type="Texture2D" uid="uid://dd32sxlbh24pc" path="res://Sprites/tiles platforms/movingPlat_ALL.png" id="1_1itx5"]
 [ext_resource type="Script" uid="uid://dlpdnw7f6mbfd" path="res://Scripts/moving_platform.gd" id="1_nxhtq"]
 
 [sub_resource type="Curve2D" id="Curve2D_s1svh"]

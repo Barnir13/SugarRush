@@ -46,6 +46,8 @@ open_use={
 [layer_names]
 
 2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="headHitbox"
 2d_physics/layer_9="ground"
 2d_physics/layer_10="one_way_ground"
 

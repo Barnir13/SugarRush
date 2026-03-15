@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqtpogolv33gt"]
 
 [ext_resource type="Script" uid="uid://q3h6q4m6dgmu" path="res://Scripts/cookie.gd" id="1_olt43"]
-[ext_resource type="Texture2D" uid="uid://c4k768hw7wpk2" path="res://Sprites/Cookie_spinning.png" id="2_olt43"]
+[ext_resource type="Texture2D" uid="uid://c4k768hw7wpk2" path="res://Sprites/powerups/Cookie_spinning.png" id="2_olt43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78qtf"]
 atlas = ExtResource("2_olt43")

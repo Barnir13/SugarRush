@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsrxf83sgwxn1"
-path="res://.godot/imported/breakingPLat.png-084bbf8104d6a5ac72322a0b015624af.ctex"
+uid="uid://c3fvhhocljlx2"
+path="res://.godot/imported/Donut_spinning.png-681b2e5c707a1d199759d5f0564fdf42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/breakingPLat.png"
-dest_files=["res://.godot/imported/breakingPLat.png-084bbf8104d6a5ac72322a0b015624af.ctex"]
+source_file="res://Sprites/powerups/Donut_spinning.png"
+dest_files=["res://.godot/imported/Donut_spinning.png-681b2e5c707a1d199759d5f0564fdf42.ctex"]
 
 [params]
 

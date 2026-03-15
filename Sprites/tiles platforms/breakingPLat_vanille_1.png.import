@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bofutykbcgdxu"
-path="res://.godot/imported/candy_spinning.png-0b7f54b19ab6409eb27f7a723e85a653.ctex"
+uid="uid://dxyttfql7ahx7"
+path="res://.godot/imported/breakingPLat_vanille_1.png-15e15d9191a344e56f273cebcb750bcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/candy_spinning.png"
-dest_files=["res://.godot/imported/candy_spinning.png-0b7f54b19ab6409eb27f7a723e85a653.ctex"]
+source_file="res://Sprites/tiles platforms/breakingPLat_vanille_1.png"
+dest_files=["res://.godot/imported/breakingPLat_vanille_1.png-15e15d9191a344e56f273cebcb750bcb.ctex"]
 
 [params]
 
