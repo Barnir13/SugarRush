@@ -122,7 +122,7 @@ animations = [{
 size = Vector2(13.034449, 2.6199417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo1qd"]
-size = Vector2(18.130331, 14.549931)
+size = Vector2(20.432375, 14.549931)
 
 [node name="Waffle" type="CharacterBody2D" unique_id=1674559987]
 collision_layer = 2
@@ -137,6 +137,8 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cqicw")
 animation = &"walk"
 autoplay = "walk"
+frame = 2
+frame_progress = 0.40061402
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=230897094]
 wait_time = 1.0039999999999998
@@ -153,7 +155,7 @@ shape = SubResource("RectangleShape2D_kvemq")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideHitbox" unique_id=653897872]
-position = Vector2(0.43884754, 1.507102)
+position = Vector2(-0.10752964, 1.507102)
 shape = SubResource("RectangleShape2D_vo1qd")
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]

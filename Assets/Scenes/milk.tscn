@@ -122,7 +122,7 @@ animations = [{
 size = Vector2(11.060545, 1.260787)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwy7a"]
-size = Vector2(13.237276, 12.7690525)
+size = Vector2(14.292625, 12.7690525)
 
 [node name="milk" type="CharacterBody2D" unique_id=647387810]
 collision_layer = 2
@@ -136,11 +136,9 @@ shape = SubResource("RectangleShape2D_4jbjr")
 sprite_frames = SubResource("SpriteFrames_r32sf")
 animation = &"death"
 autoplay = "walk"
-frame = 9
-frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1596698941]
-wait_time = 1.1239999999999999
+wait_time = 1.124
 autostart = true
 
 [node name="HeadHitbox" type="Area2D" parent="." unique_id=1795559944]
@@ -154,7 +152,7 @@ shape = SubResource("RectangleShape2D_cdrrw")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideHitbox" unique_id=233259883]
-position = Vector2(-0.008248091, 1.577441)
+position = Vector2(-0.53592277, 1.577441)
 shape = SubResource("RectangleShape2D_fwy7a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
