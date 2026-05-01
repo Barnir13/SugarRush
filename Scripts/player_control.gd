@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 10
 @export var jump_power = 10
 
@@ -23,7 +25,7 @@ var _speed_id := 0
 @onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D") # ha van, tudunk effektet adni
 
 func respawn():
-	self.global_position = Vector2(40,-130)
+	self.global_position = Vector2(89,-91.62)
 
 func _ready() -> void:
 	add_to_group("Player")

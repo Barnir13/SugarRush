@@ -15,4 +15,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.health > 0:
 			return
 
-	get_tree().call_deferred("reload_current_scene")
+	GameManager.respawn_player()

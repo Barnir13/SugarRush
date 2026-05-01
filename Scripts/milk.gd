@@ -16,7 +16,6 @@ func _ready():
 	
 	# Ha a Timer nincs bekötve az editorban, itt is megteheted:
 	if timer:
-		timer.timeout.connect(_on_timer_timeout)
 		if timer.autostart == false:
 			timer.start()
 
@@ -43,7 +42,7 @@ func _on_side_hitbox_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		# Megnézzük, a player épp sebezhetetlen-e
 		if not ("invincible" in body and body.invincible):
-			get_tree().call_deferred("reload_current_scene")
+			GameManager.respawn_player()
 
 # Felülről ugrás (Enemy halál)
 func _on_head_hitbox_body_entered(body: Node) -> void:

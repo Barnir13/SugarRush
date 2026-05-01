@@ -12,73 +12,74 @@
 [ext_resource type="PackedScene" uid="uid://ej6nxehhcwud" path="res://Assets/Scenes/bridge_long.tscn" id="10_oid8y"]
 [ext_resource type="PackedScene" uid="uid://dt0yh5rjgt1x" path="res://Assets/Scenes/milk.tscn" id="11_g6qwd"]
 [ext_resource type="PackedScene" uid="uid://dm1jegb4iwt7v" path="res://Assets/Scenes/bridge_short.tscn" id="11_oid8y"]
+[ext_resource type="PackedScene" uid="uid://bffjoepv1lh2w" path="res://Assets/Scenes/chekcpoint.tscn" id="12_aqxam"]
 [ext_resource type="PackedScene" uid="uid://rpy67qkxjvqu" path="res://Assets/Scenes/chest.tscn" id="12_wp53d"]
 [ext_resource type="PackedScene" uid="uid://dou1g41a56svu" path="res://Assets/Scenes/waffle.tscn" id="13_ycan5"]
 
-[sub_resource type="Curve2D" id="Curve2D_g6qwd"]
+[sub_resource type="Curve2D" id="Curve2D_aqxam"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 365.92822, 240.61574, 0, 0, 0, 0, 296.96338, 260.2569)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_aqxam"]
+[sub_resource type="Curve2D" id="Curve2D_ip0as"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 422.5896, 254.99301)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ip0as"]
+[sub_resource type="Curve2D" id="Curve2D_8jifc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 358.81067, 304.96582)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_8jifc"]
+[sub_resource type="Curve2D" id="Curve2D_yxbg1"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 326.0974, 238.42465, 0, 0, 0, 0, 276.66028, 238.16489)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_yxbg1"]
+[sub_resource type="Curve2D" id="Curve2D_ciglb"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 332.1692, 255, 0, 0, 0, 0, 451.3811, 254.738)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_pip7x"]
+[sub_resource type="Curve2D" id="Curve2D_ars06"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 190.43115, 255.98431, 0, 0, 0, 0, 241.55566, 95.95674)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_h1t0x"]
+[sub_resource type="Curve2D" id="Curve2D_tuvin"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 195.91504, 257, 0, 0, 0, 0, 117.808105, 293)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ciglb"]
+[sub_resource type="Curve2D" id="Curve2D_h1t0x"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 292.042, 289.55807, 0, 0, 0, 0, 421.10815, 277.13147)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ars06"]
+[sub_resource type="Curve2D" id="Curve2D_pip7x"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 359.5008, 241.71457, 0, 0, 0, 0, 297.3039, 242.00127)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_tuvin"]
+[sub_resource type="Curve2D" id="Curve2D_l01qq"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 189.02927, 2.074936, 0, 0, 0, 0, 236.87112, -27.833542)
@@ -212,7 +213,7 @@ position = Vector2(17, -10)
 position = Vector2(2337.6953, -374.70648)
 
 [node name="Player" parent="." unique_id=1585269501 instance=ExtResource("2_vle8b")]
-position = Vector2(22.418575, -83.88371)
+position = Vector2(88.257454, -90.68082)
 rotation = 0.0052359877
 
 [node name="platforms tiles" type="Node2D" parent="." unique_id=266946124]
@@ -232,52 +233,52 @@ position = Vector2(2441.7136, -327.47736)
 [node name="movingPlatform6" parent="platforms tiles" unique_id=330981816 instance=ExtResource("3_ukqll")]
 position = Vector2(1331.234, -471.61575)
 scale = Vector2(0.6005711, 1)
-curve = SubResource("Curve2D_g6qwd")
+curve = SubResource("Curve2D_aqxam")
 
 [node name="movingPlatform5" parent="platforms tiles" unique_id=1697431084 instance=ExtResource("3_ukqll")]
 position = Vector2(1172.6221, -468.33267)
 scale = Vector2(0.68221825, 1)
-curve = SubResource("Curve2D_aqxam")
+curve = SubResource("Curve2D_ip0as")
 
 [node name="movingPlatform4" parent="platforms tiles" unique_id=1170726266 instance=ExtResource("3_ukqll")]
 position = Vector2(898.8721, -400.9295)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_ip0as")
+curve = SubResource("Curve2D_8jifc")
 
 [node name="movingPlatform3" parent="platforms tiles" unique_id=810768071 instance=ExtResource("3_ukqll")]
 position = Vector2(517, -405)
 scale = Vector2(0.7749652, 1)
-curve = SubResource("Curve2D_8jifc")
+curve = SubResource("Curve2D_yxbg1")
 
 [node name="movingPlatform7" parent="platforms tiles" unique_id=32252615 instance=ExtResource("3_ukqll")]
 position = Vector2(1934.0952, -517.89703)
 scale = Vector2(0.6653237, 1)
-curve = SubResource("Curve2D_yxbg1")
+curve = SubResource("Curve2D_ciglb")
 
 [node name="movingPlatform9" parent="platforms tiles" unique_id=396438445 instance=ExtResource("3_ukqll")]
 position = Vector2(2471.6733, -321.09232)
 scale = Vector2(0.66920996, 0.9613569)
-curve = SubResource("Curve2D_pip7x")
+curve = SubResource("Curve2D_ars06")
 
 [node name="movingPlatform10" parent="platforms tiles" unique_id=1171908012 instance=ExtResource("3_ukqll")]
 position = Vector2(2806, -389)
 scale = Vector2(0.5856985, 1)
-curve = SubResource("Curve2D_h1t0x")
+curve = SubResource("Curve2D_tuvin")
 
 [node name="movingPlatform8" parent="platforms tiles" unique_id=1833009910 instance=ExtResource("3_ukqll")]
 position = Vector2(2217.6904, -540.5491)
 scale = Vector2(0.7653094, 1)
-curve = SubResource("Curve2D_ciglb")
+curve = SubResource("Curve2D_h1t0x")
 
 [node name="movingPlatform2" parent="platforms tiles" unique_id=1482834980 instance=ExtResource("3_ukqll")]
 position = Vector2(615.6401, -313.29007)
 scale = Vector2(0.88032115, 1)
-curve = SubResource("Curve2D_ars06")
+curve = SubResource("Curve2D_pip7x")
 
 [node name="movingPlatform" parent="platforms tiles" unique_id=1339082658 instance=ExtResource("3_ukqll")]
 position = Vector2(350.53738, -166.5028)
 scale = Vector2(0.88319445, 1)
-curve = SubResource("Curve2D_tuvin")
+curve = SubResource("Curve2D_l01qq")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1153029754]
 position = Vector2(0, -4)
@@ -386,6 +387,9 @@ position = Vector2(2903, -142)
 
 [node name="milk" parent="Enemies" unique_id=966744561 instance=ExtResource("11_g6qwd")]
 position = Vector2(248.31485, -74.688156)
+
+[node name="Chekcpoint" parent="Enemies" unique_id=1154004116 instance=ExtResource("12_aqxam")]
+position = Vector2(2124.705, -200.90501)
 
 [node name="Collectables" type="Node2D" parent="." unique_id=1263789092]
 

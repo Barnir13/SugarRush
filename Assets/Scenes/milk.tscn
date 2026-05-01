@@ -139,8 +139,8 @@ autoplay = "walk"
 frame = 9
 frame_progress = 1.0
 
-[node name="PatrolTimer" type="Timer" parent="." unique_id=1596698941]
-wait_time = 2.552
+[node name="Timer" type="Timer" parent="." unique_id=1596698941]
+wait_time = 1.1239999999999999
 autostart = true
 
 [node name="HeadHitbox" type="Area2D" parent="." unique_id=1795559944]
@@ -157,4 +157,4 @@ collision_layer = 2
 position = Vector2(-0.008248091, 1.577441)
 shape = SubResource("RectangleShape2D_fwy7a")
 
-[connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

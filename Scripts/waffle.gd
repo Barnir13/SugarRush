@@ -43,7 +43,7 @@ func _on_side_hitbox_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		# Fánk effekt figyelése
 		if not ("invincible" in body and body.invincible):
-			get_tree().call_deferred("reload_current_scene")  # Player halál
+			GameManager.respawn_player()
 
 
 # Felülről ugrás

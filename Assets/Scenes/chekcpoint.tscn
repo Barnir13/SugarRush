@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bffjoepv1lh2w"]
+
+[ext_resource type="Script" uid="uid://jsj10inur2qm" path="res://Scripts/chekcpoint.gd" id="1_d4xkt"]
+[ext_resource type="Texture2D" uid="uid://cnm3qjw5nv52s" path="res://Sprites/checkpoint/flag_idle4.png" id="1_xsda5"]
+[ext_resource type="Texture2D" uid="uid://c3fba1bd7n5x0" path="res://Sprites/checkpoint/flag1.png" id="2_r4m4h"]
+[ext_resource type="Texture2D" uid="uid://b1pbig7ve5ohg" path="res://Sprites/checkpoint/flag2.png" id="3_d4xkt"]
+[ext_resource type="Texture2D" uid="uid://db6lmcu1fg4gm" path="res://Sprites/checkpoint/flag3.png" id="4_0wr3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vftjy"]
+size = Vector2(22.891113, 35.97175)
+
+[sub_resource type="Animation" id="Animation_kvbot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_xsda5")]
+}
+
+[sub_resource type="Animation" id="Animation_sr2o7"]
+resource_name = "active"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_r4m4h"), ExtResource("3_d4xkt"), ExtResource("4_0wr3e"), ExtResource("1_xsda5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgmmt"]
+_data = {
+&"RESET": SubResource("Animation_kvbot"),
+&"active": SubResource("Animation_sr2o7")
+}
+
+[node name="Chekcpoint" type="Node2D" unique_id=1154004116]
+script = ExtResource("1_d4xkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1597292540]
+texture = ExtResource("1_xsda5")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=2025540032]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1755813737]
+position = Vector2(-0.3066864, -1.3590698)
+shape = SubResource("RectangleShape2D_vftjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=463492993]
+libraries/ = SubResource("AnimationLibrary_qgmmt")
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

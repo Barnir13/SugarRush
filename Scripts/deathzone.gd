@@ -1,5 +1,5 @@
 extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		body.respawn() # Replace with function body.
+	if body.is_in_group("Player"):
+		GameManager.respawn_player()
