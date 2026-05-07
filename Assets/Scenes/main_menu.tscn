@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cq5gn38uxfuty"]
+
+[ext_resource type="Script" uid="uid://b10q5xthqkk86" path="res://Scripts/main_menu.gd" id="1_cbhea"]
+[ext_resource type="Texture2D" uid="uid://cjhlc4c8xyux5" path="res://Sprites/background/main_menu_bg.png" id="1_fsbqx"]
+[ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="1_x6jn2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbhea"]
+texture = ExtResource("1_fsbqx")
+modulate_color = Color(0.8089983, 0.8089983, 0.8089982, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_offset = Vector2(0, 1.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tanm1"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0)
+shadow_offset = Vector2(0, 1.8)
+
+[node name="MainMenu" type="Control" unique_id=197394470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cbhea")
+
+[node name="Panel" type="Panel" parent="." unique_id=1722974486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cbhea")
+
+[node name="Button" type="Button" parent="." unique_id=1277626389]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.06201
+offset_top = -40.050354
+offset_right = 164.93799
+offset_bottom = 4.949646
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_x6jn2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tanm1")
+text = "Start game"
+
+[node name="Button2" type="Button" parent="." unique_id=40176301]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = 20.20102
+offset_right = 109.0
+offset_bottom = 65.20102
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_x6jn2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tanm1")
+text = "Options"
+
+[node name="Button3" type="Button" parent="." unique_id=1069951181]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -245.12457
+offset_right = 62.0
+offset_bottom = -200.12457
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_x6jn2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tanm1")
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_exit_pressed"]
