@@ -136,6 +136,8 @@ shape = SubResource("RectangleShape2D_4jbjr")
 sprite_frames = SubResource("SpriteFrames_r32sf")
 animation = &"death"
 autoplay = "walk"
+frame = 9
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1596698941]
 wait_time = 1.124

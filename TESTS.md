@@ -1,52 +1,110 @@
-# Tesztesetek
+# Tesztelési dokumentáció
 
-## 1. Main menu indítás
+## Tesztelési megközelítés
 
-Lépések:
-- A játék elindítása
-- Start gomb megnyomása
+A projekt tesztelése Play Mode alapú manuális unit és integrációs tesztekkel történt Godot engine környezetben.
 
-Elvárt eredmény:
-- A pálya betöltődik
+## UNIT TESZTEK
 
-Tényleges eredmény:
-- A pálya sikeresen betöltődik
-
-Státusz:
-- Sikeres
-
-
-## 2. Player mozgás
+## 1. Player mozgás
 
 Lépések:
-- Balra és jobbra mozgás billentyűkkel
+- Balra/jobbra mozgás billentyűkkel
 
 Elvárt eredmény:
-- A player mozog mindkét irányba
+- A player megfelelően mozog mindkét irányba
 
-Tényleges eredmény:
-- A player megfelelően mozog
-
-Státusz:
+Eredmény:
 - Sikeres
 
-
-## 3. Ugrás rendszer
+## 2. Ugrás rendszer
 
 Lépések:
-- Jump gomb megnyomása
+- Jump input megnyomása
 
 Elvárt eredmény:
-- A player ugrik
+- A player felugrik a levegőbe
 
-Tényleges eredmény:
-- Az ugrás megfelelően működik
-
-Státusz:
+Eredmény:
 - Sikeres
 
+## 3. Invincibility powerup
 
-## 4. Enemy collision
+Lépések:
+- A player felveszi az invincibility powerupot
+- Enemyhez ér
+
+Elvárt eredmény:
+- A player nem sebződik
+- Át tud menni az enemyken
+
+Eredmény:
+- Sikeres
+
+## 4. Double jump rendszer
+
+Lépések:
+- A player felveszi a double jump powerupot
+- Ugrás a levegőben másodszor is
+
+Elvárt eredmény:
+- A player két ugrást tud végrehajtani a levegőben
+
+Eredmény:
+- Sikeres
+
+## 5. Speed boost rendszer
+
+Lépések:
+- A player felveszi a speed boost powerupot
+- Mozgás jobbra/balra
+
+Elvárt eredmény:
+- A player gyorsabban mozog a normál sebességnél
+
+Eredmény:
+- Sikeres
+
+## 6. Respawn alap működés
+
+Lépések:
+- A player leesik a pályáról
+
+Elvárt eredmény:
+- A GameManager respawnolja a playert
+- A player visszakerül az indulási pozícióba vagy checkpointhoz
+
+Eredmény:
+- Sikeres
+
+## 7. Checkpoint aktiválás
+
+Lépések:
+- A player eléri a checkpointot
+
+Elvárt eredmény:
+- A checkpoint elmentődik GameManager-ben
+- Halál után oda spawnol vissza a player
+
+Eredmény:
+- Sikeres
+
+## INTEGRÁCIÓS TESZTEK
+
+## 8. Checkpoint + Respawn rendszer
+
+Lépések:
+- A player aktiválja a checkpointot
+- A player meghal
+
+Elvárt eredmény:
+- GameManager elmenti a checkpoint pozíciót
+- Scene reload után a player a checkpointnál spawnol
+
+Eredmény:
+- Sikeres
+
+## 9. Enemy + Player collision
 
 Lépések:
 - A player oldalról hozzáér egy enemyhez
@@ -55,151 +113,31 @@ Elvárt eredmény:
 - A player meghal
 - A pálya újratöltődik
 
-Tényleges eredmény:
-- A player meghal és a pálya újratöltődik
-
-Státusz:
+Eredmény:
 - Sikeres
 
-
-## 5. Enemy stomp rendszer
-
-Lépések:
-- A player az enemy fejére ugrik
-
-Elvárt eredmény:
-- Az enemy meghal
-- A player visszapattan
-
-Tényleges eredmény:
-- Az enemy meghal és a player visszapattan
-
-Státusz:
-- Sikeres
-
-## 6. Checkpoint rendszer
-
-Lépések:
-- A player eléri a checkpointot
-- A player meghal
-
-Elvárt eredmény:
-- A player a checkpointnál spawnol újra
-
-Tényleges eredmény:
-- A player a checkpointnál spawnol újra
-
-Státusz:
-- Sikeres
-
-## 7. Leesés a pályáról
-
-Lépések:
-- A player leesik a pályáról
-
-Elvárt eredmény:
-- A pálya újratöltődik
-- A player újraspawnol
-
-Tényleges eredmény:
-- A pálya újratöltődik és a player újraspawnol
-
-Státusz:
-- Sikeres
-
-
-## 8. Invincibility powerup
+## 10. Powerup + enemy layer rendszer
 
 Lépések:
 - A player felveszi az invincibility powerupot
 - Enemyhez ér
 
 Elvárt eredmény:
-- A player át tud menni az enemyken
-- A player nem hal meg
+- A player átmegy az enemyken
+- Nem történik halál
 
-Tényleges eredmény:
-- A player át tud menni az enemyken és nem hal meg
-
-Státusz:
+Eredmény:
 - Sikeres
 
-
-## 9. Double jump powerup
-
-Lépések:
-- A player felveszi a double jump powerupot
-- Kétszer ugrik levegőben
-
-Elvárt eredmény:
-- A player dupla ugrást tud végrehajtani
-
-Tényleges eredmény:
-- A dupla ugrás megfelelően működik
-
-Státusz:
-- Sikeres
-
-
-## 10. Powerup reset halál után
+## 11. Scene reload + world reset
 
 Lépések:
-- A player felvesz egy powerupot
-- Meghal mielőtt lejárna az idő
+- A player meghal (pl. leesik a pályáról vagy enemy által)
 
 Elvárt eredmény:
-- A powerup hatása megszűnik respawn után
+- A scene újratöltődik
+- Az enemyk és collectablek újra spawnolnak
+- A játék állapota alaphelyzetbe kerül, kivéve a checkpointot
 
-Tényleges eredmény:
-- A powerup hatása megszűnik respawn után
-
-Státusz:
-- Sikeres
-
-
-## 11. Breaking platform rendszer
-
-Lépések:
-- A player rááll egy breaking platformra
-- Vár néhány másodpercet
-
-Elvárt eredmény:
-- A platform eltűnik/breakel
-
-Tényleges eredmény:
-- A platform megfelelően eltűnik
-
-Státusz:
-- Sikeres
-
-
-## 12. Spike collision
-
-Lépések:
-- A player hozzáér egy tüskéhez
-
-Elvárt eredmény:
-- A player meghal
-- A pálya újratöltődik
-
-Tényleges eredmény:
-- A player meghal és a pálya újratöltődik
-
-Státusz:
-- Sikeres
-
-
-## 13. Moving platform drop-through
-
-Lépések:
-- A player rááll egy moving platformra
-- Az S billentyű megnyomása
-
-Elvárt eredmény:
-- A player leesik a platformról
-
-Tényleges eredmény:
-- A player megfelelően leesik a platformról
-
-Státusz:
+Eredmény:
 - Sikeres

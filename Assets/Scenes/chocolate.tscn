@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c4wrngk1snhw7"]
+
+[ext_resource type="Script" uid="uid://ximgdl2xctnj" path="res://Scripts/chocolate.gd" id="1_0w243"]
+[ext_resource type="Texture2D" uid="uid://cue8a5rdxhost" path="res://Sprites/chocolate/chocolate.png" id="1_n4tb6"]
+[ext_resource type="PackedScene" uid="uid://bnbjx8i3818vt" path="res://Assets/Scenes/bullet.tscn" id="2_ko3gr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w243"]
+size = Vector2(10.984375, 15.96875)
+
+[node name="chocolate" type="CharacterBody2D" unique_id=1332495550]
+collision_layer = 2
+script = ExtResource("1_0w243")
+bullet = ExtResource("2_ko3gr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=812454936]
+texture = ExtResource("1_n4tb6")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1885057134]
+position = Vector2(-6.0784616, 0.031380653)
+gizmo_extents = 2.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2047230473]
+wait_time = 1.5
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1931100157]
+position = Vector2(-4.8540306, 0.12607765)
+rect = Rect2(-8.468861, -7.8639555, 6.2775803, 15.8321085)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=903964131]
+shape = SubResource("RectangleShape2D_0w243")

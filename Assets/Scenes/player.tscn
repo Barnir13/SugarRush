@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c5ccnwrjerusb" path="res://Sprites/player/player..png" id="1_6cd4h"]
 [ext_resource type="Script" uid="uid://dafh548h4pow1" path="res://Scripts/player_control.gd" id="1_7dd06"]
+[ext_resource type="AudioStream" uid="uid://6xjjvcj4obde" path="res://Sounds/powerup.mp3" id="3_38rej"]
+[ext_resource type="AudioStream" uid="uid://g6rpb41lpee5" path="res://Sounds/jump.wav" id="4_t1xgp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
 radius = 7.0
@@ -39,3 +41,11 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=414003915]
 shape = SubResource("CapsuleShape2D_38rej")
+
+[node name="sfx_powerup" type="AudioStreamPlayer2D" parent="." unique_id=1331766417]
+stream = ExtResource("3_38rej")
+volume_db = -9.0
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=720884699]
+stream = ExtResource("4_t1xgp")
+volume_db = -5.0

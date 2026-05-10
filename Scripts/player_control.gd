@@ -23,6 +23,8 @@ var speed_boost := 1.0
 var _speed_id := 0
 
 @onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D")
+@onready var sfx_powerup: AudioStreamPlayer2D = $sfx_powerup
+@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
 
 func _ready() -> void:
 	add_to_group("Player")
@@ -47,7 +49,7 @@ func reset_powerups():
 		spr.modulate.a = 1.0
 
 func enable_double_jump(duration: float) -> void:
-
+	sfx_powerup.play()
 	_powerup_id += 1
 	var my_id := _powerup_id
 
@@ -64,6 +66,7 @@ func enable_double_jump(duration: float) -> void:
 
 func enable_invincibility(duration: float) -> void:
 
+	sfx_powerup.play()
 	_inv_id += 1
 	var my_id := _inv_id
 
@@ -86,6 +89,7 @@ func enable_invincibility(duration: float) -> void:
 
 func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 
+	sfx_powerup.play()
 	_speed_id += 1
 	var my_id := _speed_id
 
@@ -101,6 +105,7 @@ func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 func _input(event):
 
 	if event.is_action_pressed("jump") and jumps_left > 0:
+		sfx_jump.play()
 		velocity.y = jump_power * jump_multiplier
 		jumps_left -= 1
 

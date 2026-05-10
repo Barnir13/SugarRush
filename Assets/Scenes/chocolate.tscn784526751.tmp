@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4wrngk1snhw7"]
+
+[ext_resource type="Script" uid="uid://ximgdl2xctnj" path="res://Scripts/chocolate.gd" id="1_0w243"]
+[ext_resource type="Texture2D" uid="uid://cue8a5rdxhost" path="res://Sprites/chocolate/chocolate.png" id="1_n4tb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w243"]
+size = Vector2(10.984375, 15.96875)
+
+[node name="chocolate" type="Node2D" unique_id=2012033146]
+script = ExtResource("1_0w243")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=812454936]
+texture = ExtResource("1_n4tb6")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1885057134]
+position = Vector2(-6.0784616, 0.031380653)
+gizmo_extents = 2.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2047230473]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=169637261]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=903964131]
+shape = SubResource("RectangleShape2D_0w243")

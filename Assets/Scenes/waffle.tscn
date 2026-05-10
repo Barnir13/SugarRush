@@ -135,10 +135,8 @@ shape = SubResource("CircleShape2D_kvemq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866958946]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cqicw")
-animation = &"walk"
+animation = &"death"
 autoplay = "walk"
-frame = 2
-frame_progress = 0.40061402
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=230897094]
 wait_time = 1.0039999999999998
