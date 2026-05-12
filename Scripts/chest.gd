@@ -5,7 +5,7 @@ extends AnimatedSprite2D
 # Flag, hogy a láda már nyitva van-e
 var is_open: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Ellenőrizzük az inputot minden frame-ben
 	if Input.is_action_just_pressed("open_use") and not is_open:
 		open_chest()

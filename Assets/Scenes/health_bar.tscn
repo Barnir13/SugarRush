@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dh4xh0gqt5043"]
+
+[ext_resource type="Script" uid="uid://bl5sqgqd3tmb1" path="res://Scripts/health_bar.gd" id="1_5nmq1"]
+[ext_resource type="Texture2D" uid="uid://u51sgcc36g5e" path="res://Sprites/hud/hp.png" id="2_3iw1p"]
+[ext_resource type="Texture2D" uid="uid://dnkb2j2f03l5v" path="res://Sprites/hud/coin_hud.png" id="3_3iw1p"]
+[ext_resource type="Texture2D" uid="uid://b1f1ee8craxf5" path="res://Sprites/progressbars/donut_bar_under.png" id="4_f0f3s"]
+[ext_resource type="Texture2D" uid="uid://wn4fjwtpq173" path="res://Sprites/progressbars/donut_bar_over.png" id="5_fuioo"]
+[ext_resource type="Texture2D" uid="uid://6aqjnvmk64gn" path="res://Sprites/progressbars/donut_bar_bar.png" id="6_s6xjk"]
+[ext_resource type="Texture2D" uid="uid://co12htl2kj31m" path="res://Sprites/progressbars/candy_bar_over.png" id="7_lfluc"]
+[ext_resource type="Texture2D" uid="uid://cauukxg3yobjk" path="res://Sprites/progressbars/candy_bar_under.png" id="7_lu6lg"]
+[ext_resource type="Texture2D" uid="uid://das8dtt57jacd" path="res://Sprites/progressbars/biscuit_bar_over.png" id="7_s6xjk"]
+[ext_resource type="Texture2D" uid="uid://c0rubxtgjkiyf" path="res://Sprites/progressbars/candy_bar_bar.png" id="8_lu6lg"]
+[ext_resource type="Texture2D" uid="uid://dmfcca6xvd18x" path="res://Sprites/progressbars/biscuit_bar_bar.png" id="8_q4k5w"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1167977654]
+script = ExtResource("1_5nmq1")
+
+[node name="health_bar" type="HBoxContainer" parent="." unique_id=1418612424]
+offset_left = 13.812408
+offset_top = 9.220627
+offset_right = 162.74979
+offset_bottom = 54.49449
+
+[node name="heart1" type="TextureRect" parent="health_bar" unique_id=390707827]
+layout_mode = 2
+texture = ExtResource("2_3iw1p")
+expand_mode = 2
+
+[node name="heart2" type="TextureRect" parent="health_bar" unique_id=521804852]
+layout_mode = 2
+texture = ExtResource("2_3iw1p")
+expand_mode = 2
+
+[node name="heart3" type="TextureRect" parent="health_bar" unique_id=1785641428]
+layout_mode = 2
+texture = ExtResource("2_3iw1p")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=83495461]
+offset_left = 292.9532
+offset_top = 6.34021
+offset_right = 338.2198
+offset_bottom = 51.606827
+texture = ExtResource("3_3iw1p")
+
+[node name="Label" type="Label" parent="." unique_id=636861228]
+offset_left = 336.35178
+offset_top = 12.129196
+offset_right = 380.55032
+offset_bottom = 45.85887
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="invincible_powerup_bar" type="TextureProgressBar" parent="." unique_id=1372332964]
+offset_left = 18.85846
+offset_top = 674.1466
+offset_right = 105.85846
+offset_bottom = 688.1466
+scale = Vector2(3, 3)
+max_value = 5.0
+step = 0.1
+value = 5.0
+texture_under = ExtResource("4_f0f3s")
+texture_over = ExtResource("5_fuioo")
+texture_progress = ExtResource("6_s6xjk")
+texture_progress_offset = Vector2(13, 4)
+
+[node name="jump_powerup_bar" type="TextureProgressBar" parent="." unique_id=1023695615]
+offset_left = 588.50183
+offset_top = 674.1152
+offset_right = 675.50183
+offset_bottom = 688.1152
+scale = Vector2(3, 3)
+max_value = 5.0
+step = 0.1
+value = 5.0
+texture_under = ExtResource("4_f0f3s")
+texture_over = ExtResource("7_s6xjk")
+texture_progress = ExtResource("8_q4k5w")
+texture_progress_offset = Vector2(13, 4)
+
+[node name="speed_powerup_bar" type="TextureProgressBar" parent="." unique_id=251642028]
+offset_left = 297.8908
+offset_top = 674.4906
+offset_right = 384.8908
+offset_bottom = 714.4906
+scale = Vector2(3, 3)
+max_value = 5.0
+step = 0.1
+value = 5.0
+texture_under = ExtResource("7_lu6lg")
+texture_over = ExtResource("7_lfluc")
+texture_progress = ExtResource("8_lu6lg")
+texture_progress_offset = Vector2(11, 4)

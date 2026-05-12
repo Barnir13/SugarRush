@@ -22,18 +22,34 @@ var _inv_id := 0
 var speed_boost := 1.0
 var _speed_id := 0
 
+# --- POWERUP TIMERS (SEPARATE) ---
+var inv_time_left := 0.0
+var inv_max_time := 0.0
+
+var speed_time_left := 0.0
+var speed_max_time := 0.0
+
+var jump_time_left := 0.0
+var jump_max_time := 0.0
+
 @onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D")
+@onready var cam: Camera2D = get_node_or_null("Camera2D")
 @onready var sfx_powerup: AudioStreamPlayer2D = $sfx_powerup
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+
 
 func _ready() -> void:
 	add_to_group("Player")
 	jumps_left = max_jumps
-	GameManager.set_player(self)
 
-	# ✔ checkpoint spawn fix scene reload után
 	if GameManager.has_checkpoint:
 		global_position = GameManager.checkpoint_position
+
+	GameManager.set_player(self)
+
+	if cam:
+		cam.reset_smoothing()
+
 
 func reset_powerups():
 
@@ -45,16 +61,29 @@ func reset_powerups():
 
 	speed_boost = 1.0
 
+	inv_time_left = 0.0
+	speed_time_left = 0.0
+	jump_time_left = 0.0
+
 	if spr:
 		spr.modulate.a = 1.0
 
+
+# -------------------------
+# DOUBLE JUMP
+# -------------------------
 func enable_double_jump(duration: float) -> void:
+
 	sfx_powerup.play()
+
 	_powerup_id += 1
 	var my_id := _powerup_id
 
 	max_jumps = 2
 	jumps_left = min(jumps_left, max_jumps)
+
+	jump_time_left = duration
+	jump_max_time = duration
 
 	await get_tree().create_timer(duration).timeout
 
@@ -64,14 +93,24 @@ func enable_double_jump(duration: float) -> void:
 	max_jumps = 1
 	jumps_left = min(jumps_left, max_jumps)
 
+	jump_time_left = 0.0
+
+
+# -------------------------
+# INVINCIBILITY (DONUT)
+# -------------------------
 func enable_invincibility(duration: float) -> void:
 
 	sfx_powerup.play()
+
 	_inv_id += 1
 	var my_id := _inv_id
 
 	invincible = true
 	set_collision_mask_value(2, false)
+
+	inv_time_left = duration
+	inv_max_time = duration
 
 	if spr:
 		spr.modulate.a = 0.6
@@ -84,16 +123,26 @@ func enable_invincibility(duration: float) -> void:
 	invincible = false
 	set_collision_mask_value(2, true)
 
+	inv_time_left = 0.0
+
 	if spr:
 		spr.modulate.a = 1.0
 
+
+# -------------------------
+# SPEED BOOST
+# -------------------------
 func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 
 	sfx_powerup.play()
+
 	_speed_id += 1
 	var my_id := _speed_id
 
 	speed_boost = multiplier
+
+	speed_time_left = duration
+	speed_max_time = duration
 
 	await get_tree().create_timer(duration).timeout
 
@@ -101,7 +150,12 @@ func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 		return
 
 	speed_boost = 1.0
+	speed_time_left = 0.0
 
+
+# -------------------------
+# INPUT
+# -------------------------
 func _input(event):
 
 	if event.is_action_pressed("jump") and jumps_left > 0:
@@ -114,13 +168,35 @@ func _input(event):
 	else:
 		set_collision_mask_value(10, true)
 
+
+# -------------------------
+# PHYSICS
+# -------------------------
 func _physics_process(delta: float) -> void:
 
+	# --- timers ---
+	if inv_time_left > 0:
+		inv_time_left -= delta
+		if inv_time_left < 0:
+			inv_time_left = 0
+
+	if speed_time_left > 0:
+		speed_time_left -= delta
+		if speed_time_left < 0:
+			speed_time_left = 0
+
+	if jump_time_left > 0:
+		jump_time_left -= delta
+		if jump_time_left < 0:
+			jump_time_left = 0
+
+	# gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# leesés → teljes respawn (scene reload)
+	# respawn
 	if global_position.y > 2000:
+		set_physics_process(false)
 		GameManager.respawn_player()
 
 	direction = Input.get_axis("move_left", "move_right")

@@ -18,6 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://bpyi5jyh4eetu"
+BgMusic="*uid://drwaipdv415pp"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [input]
 
