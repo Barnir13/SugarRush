@@ -17,6 +17,7 @@ height = 13.56669
 collision_mask = 770
 script = ExtResource("1_7dd06")
 speed = 4
+jump_velocity = -400.0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=412838250]
 
