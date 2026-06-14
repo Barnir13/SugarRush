@@ -17,12 +17,10 @@ func _ready() -> void:
 	move_tween()
 
 func move_tween() -> void:
-	# ✅ sose legyen 0, különben infinite loop warning jön
 	path_time = max(path_time, 0.01)
 
 	var tween := get_tree().create_tween()
-	tween.set_loops() # végtelen
-
+	tween.set_loops() 
 	tween.tween_property(path_follow_2D, "progress_ratio", 1.0, path_time)\
 		.set_ease(ease_type).set_trans(transition_type)
 

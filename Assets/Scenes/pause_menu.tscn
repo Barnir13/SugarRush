@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://b787h43thid51"]
+
+[ext_resource type="Script" uid="uid://cct40sqstpt1w" path="res://Scripts/pause_menu.gd" id="1_pau01"]
+[ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="3_pau01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.06, 0.06, 0.1, 0.82)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="Control" unique_id=200000001]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pau01")
+
+[node name="Overlay" type="Panel" parent="." unique_id=200000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="Card" type="Panel" parent="." unique_id=200000015]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -130.0
+offset_right = 160.0
+offset_bottom = 200.81812
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="PausedLabel" type="Label" parent="Card" unique_id=200000016]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 14.0
+offset_right = 80.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_fonts/font = ExtResource("3_pau01")
+theme_override_font_sizes/font_size = 20
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="." unique_id=200000003]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -62.0
+offset_right = 140.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_pau01")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Resume"
+
+[node name="NewGameButton" type="Button" parent="." unique_id=200000004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 3.0
+offset_right = 140.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_pau01")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "New game"
+
+[node name="OptionsButton" type="Button" parent="." unique_id=200000005]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 68.0
+offset_right = 140.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_pau01")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="." unique_id=200000006]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 133.0
+offset_right = 140.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.4, 0.4, 1)
+theme_override_colors/font_hover_color = Color(1, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_pau01")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Exit"
+
+[node name="settings_panel" type="Panel" parent="." unique_id=200000007]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.29834
+offset_top = -289.30914
+offset_right = 318.29834
+offset_bottom = 289.30914
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="master_volume" type="Label" parent="settings_panel" unique_id=200000008]
+layout_mode = 0
+offset_left = 108.477844
+offset_top = 134.5863
+offset_right = 224.47784
+offset_bottom = 183.5863
+text = "Master volume"
+
+[node name="master_slider" type="HSlider" parent="settings_panel" unique_id=200000009]
+layout_mode = 0
+offset_left = 238.32
+offset_top = 142.30887
+offset_right = 557.32
+offset_bottom = 158.30887
+min_value = -80.0
+max_value = 20.0
+
+[node name="music_volume" type="Label" parent="settings_panel" unique_id=200000010]
+layout_mode = 0
+offset_left = 108.477844
+offset_top = 183.5863
+offset_right = 215.47784
+offset_bottom = 206.5863
+text = "Music volume"
+
+[node name="music_slider" type="HSlider" parent="settings_panel" unique_id=200000011]
+layout_mode = 0
+offset_left = 238.32
+offset_top = 190.74072
+offset_right = 557.32
+offset_bottom = 206.74072
+min_value = -100.0
+max_value = 20.0
+
+[node name="close_button" type="Button" parent="settings_panel" unique_id=200000012]
+layout_mode = 0
+offset_left = 290.39996
+offset_top = 294.2588
+offset_right = 380.29834
+offset_bottom = 325.2588
+text = "Close"
+
+[node name="main_percent" type="Label" parent="settings_panel" unique_id=200000013]
+layout_mode = 0
+offset_left = 571.8654
+offset_top = 142.30887
+offset_right = 611.8654
+offset_bottom = 165.30887
+
+[node name="music_percent" type="Label" parent="settings_panel" unique_id=200000014]
+layout_mode = 0
+offset_left = 571.8654
+offset_top = 190.74072
+offset_right = 611.8654
+offset_bottom = 213.74072
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="settings_panel/master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="settings_panel/music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="settings_panel/close_button" to="." method="_on_close_button_pressed"]

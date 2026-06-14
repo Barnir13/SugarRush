@@ -8,6 +8,7 @@ var dead = false
 @onready var head_hitbox: Area2D = $HeadHitbox
 @onready var side_hitbox: Area2D = $SideHitbox
 @onready var timer: Timer = $Timer
+@onready var sfx_milk_death: AudioStreamPlayer2D = $sfx_milk_death
 
 
 func _ready():
@@ -32,23 +33,16 @@ func _on_timer_timeout():
 	direction *= -1
 	animated_sprite_2d.flip_h = !animated_sprite_2d.flip_h
 
-
-# =========================
-# PLAYER HIT (SIDE)
-# =========================
 func _on_side_hitbox_body_entered(body: Node) -> void:
 	if dead:
 		return
 
 	if body.is_in_group("Player"):
-
 		if not ("invincible" in body and body.invincible):
-			GameManager.respawn_player()
+			if "is_dying" in body and not body.is_dying:
+				body.is_dying = true
+				GameManager.respawn_player()
 
-
-# =========================
-# HEAD STOMP (KILL ENEMY)
-# =========================
 func _on_head_hitbox_body_entered(body: Node) -> void:
 	if dead:
 		return
@@ -56,14 +50,11 @@ func _on_head_hitbox_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		die(body)
 
-
-# =========================
-# DEATH FUNCTION
-# =========================
 func die(player):
 	dead = true
-
-	# ❗ MINDEN HITBOX OFF
+	GameManager.add_score(500)
+	sfx_milk_death.play()
+	
 	head_hitbox.set_deferred("monitoring", false)
 	side_hitbox.set_deferred("monitoring", false)
 
@@ -75,15 +66,12 @@ func die(player):
 	if side_col:
 		side_col.set_deferred("disabled", true)
 
-	# ❗ TELJES PHYSICS KIKAPCSOLÁS (ghost mód)
 	set_collision_layer_value(2, false)
 	set_collision_mask_value(1, false)
 
-	# Player bounce
 	if "velocity" in player:
 		player.velocity.y = -250
 
-	# Death anim
 	animated_sprite_2d.play("death")
 
 	await animated_sprite_2d.animation_finished

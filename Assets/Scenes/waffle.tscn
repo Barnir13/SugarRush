@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dek15edhq0oos" path="res://Scripts/waffle.gd" id="1_kvemq"]
 [ext_resource type="Texture2D" uid="uid://d11eug4xqy2kd" path="res://Sprites/waffle/waffle_death.png" id="1_n57et"]
 [ext_resource type="Texture2D" uid="uid://dkydc7r3r1o71" path="res://Sprites/waffle/waffle_walk_right.png" id="2_n57et"]
+[ext_resource type="AudioStream" uid="uid://ca57lwdtg5hd5" path="res://Sounds/waffle_death.mp3" id="4_vo1qd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kvemq"]
 radius = 8.584656
@@ -122,7 +123,7 @@ animations = [{
 size = Vector2(16.635555, 2.6199417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo1qd"]
-size = Vector2(20.432375, 14.290564)
+size = Vector2(20.432375, 14.016565)
 
 [node name="Waffle" type="CharacterBody2D" unique_id=1674559987]
 collision_layer = 2
@@ -153,7 +154,11 @@ shape = SubResource("RectangleShape2D_kvemq")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideHitbox" unique_id=653897872]
-position = Vector2(-0.10752964, 1.6367857)
+position = Vector2(-0.10752964, 1.7737849)
 shape = SubResource("RectangleShape2D_vo1qd")
+
+[node name="sfx_waffle_death" type="AudioStreamPlayer2D" parent="." unique_id=1515966736]
+stream = ExtResource("4_vo1qd")
+volume_db = -5.0
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_timer_timeout"]

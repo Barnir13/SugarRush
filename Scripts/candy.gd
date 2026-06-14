@@ -7,4 +7,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if body.has_method("enable_speed_boost"):
 			body.enable_speed_boost(duration, boost_multiplier)
+		GameManager.add_score(300)
 		queue_free()

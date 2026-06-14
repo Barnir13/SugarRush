@@ -8,13 +8,11 @@ extends Area2D
 
 func _ready() -> void:
 
-	# automatikus ID ha nincs megadva
 	if coin_id.is_empty():
 		coin_id = str(get_path())
 
 	body_entered.connect(_on_body_entered)
 
-	# ha már fel lett véve korábban
 	if GameManager.collected_coins.has(coin_id):
 		queue_free()
 
@@ -24,7 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):
 		return
 
-	# dupla trigger védelem
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
 

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d3l2xawiq0vg2"]
+
+[ext_resource type="PackedScene" uid="uid://di2xx7sf3k6to" path="res://Assets/Scenes/breaking_platform_pink.tscn" id="1_xcolb"]
+[ext_resource type="Texture2D" uid="uid://w11p85d38maq" path="res://Sprites/tiles platforms/breaking_plat_chocolate_.png" id="2_q0ksx"]
+
+[node name="breaking_platform_chocolate" unique_id=1255920530 instance=ExtResource("1_xcolb")]
+
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(121195560) index="0" unique_id=355969458]
+texture = ExtResource("2_q0ksx")

@@ -7,6 +7,7 @@ var dead = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var head_hitbox: Area2D = $HeadHitbox
 @onready var side_hitbox: Area2D = $SideHitbox
+@onready var sfx_waffle_death: AudioStreamPlayer2D = $sfx_waffle_death
 
 
 func _ready():
@@ -29,30 +30,24 @@ func _on_timer_timeout():
 	animated_sprite_2d.flip_h = !animated_sprite_2d.flip_h
 
 
-# =========================
-# PLAYER SIDE HIT
-# =========================
 func _on_side_hitbox_body_entered(body: Node) -> void:
 	if dead:
 		return
 
 	if body.is_in_group("Player"):
-
 		if not ("invincible" in body and body.invincible):
 			GameManager.respawn_player()
 
 
-# =========================
-# HEAD STOMP (KILL ENEMY)
-# =========================
 func _on_head_hitbox_body_entered(body: Node) -> void:
 	if dead:
 		return
 
 	if body.is_in_group("Player"):
 		dead = true
+		GameManager.add_score(500)
+		sfx_waffle_death.play()
 
-		# ❗ AZONNAL MINDEN HITBOX KIKAPCSOLÁSA
 		side_hitbox.set_deferred("monitoring", false)
 		head_hitbox.set_deferred("monitoring", false)
 
@@ -64,14 +59,11 @@ func _on_head_hitbox_body_entered(body: Node) -> void:
 		if head_col:
 			head_col.set_deferred("disabled", true)
 
-		# Player bounce
 		if "velocity" in body:
 			body.velocity.y = -250
 
-		# Death anim
 		animated_sprite_2d.play("death")
 
-		# opcionális: ne ütközzön semmivel a sprite sem
 		set_collision_layer_value(2, false)
 		set_collision_mask_value(1, false)
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b10q5xthqkk86" path="res://Scripts/main_menu.gd" id="1_cbhea"]
 [ext_resource type="Texture2D" uid="uid://cjhlc4c8xyux5" path="res://Sprites/background/main_menu_bg.png" id="1_fsbqx"]
 [ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="1_x6jn2"]
+[ext_resource type="PackedScene" uid="uid://settings_panel_001" path="res://Assets/Scenes/settings_panel.tscn" id="2_cbhea"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbhea"]
 texture = ExtResource("1_fsbqx")
@@ -99,9 +100,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -62.0
-offset_top = -245.12457
+offset_top = -271.12457
 offset_right = 62.0
-offset_bottom = -200.12457
+offset_bottom = -226.12457
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
@@ -115,7 +116,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tanm1")
 text = "Exit"
 
+[node name="settings_panel" parent="." instance=ExtResource("2_cbhea") unique_id=1059391723]
+visible = false
+
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_exit_pressed"]

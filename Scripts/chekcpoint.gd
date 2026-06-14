@@ -8,6 +8,10 @@ var activated = false
 func activate():
 	GameManager.checkpoint_position = global_position
 	GameManager.has_checkpoint = true
+	
+	# ÚJ: Megkérjük a GameManager-t, hogy mentse el a pontokat és az érméket!
+	GameManager.save_checkpoint()
+	
 	activated = true
 	$AnimationPlayer.play("active")
 

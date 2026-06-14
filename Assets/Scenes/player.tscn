@@ -16,18 +16,12 @@ height = 13.56669
 [node name="Player" type="CharacterBody2D" unique_id=1585269501]
 collision_mask = 770
 script = ExtResource("1_7dd06")
-move_speed = 125.0
-acceleration = 1000.0
-deceleration = 1500.0
-air_acceleration = 800.0
-air_deceleration = 5600.0
-jump_velocity = -320.0
-jump_cut_multiplier = 0.4
-max_fall_speed = 350.0
+left_boundary_margin = 19.0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=412838250]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=500182185]
+texture_filter = 1
 position = Vector2(0.0011253357, -0.0064487457)
 texture = ExtResource("1_6cd4h")
 
@@ -37,13 +31,9 @@ root_node = NodePath("../..")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596693999]
 offset = Vector2(16, -13)
 zoom = Vector2(3.2, 3.2)
-limit_left = -50
 limit_top = -10000001
 limit_right = 9999998
 limit_bottom = 9999999
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856325398]
 position = Vector2(0.0011253357, -0.0064487457)
@@ -61,4 +51,4 @@ volume_db = -9.0
 
 [node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=720884699]
 stream = ExtResource("4_t1xgp")
-volume_db = -5.0
+volume_db = -19.0

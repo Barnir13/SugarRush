@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://das8dtt57jacd" path="res://Sprites/progressbars/biscuit_bar_over.png" id="7_s6xjk"]
 [ext_resource type="Texture2D" uid="uid://c0rubxtgjkiyf" path="res://Sprites/progressbars/candy_bar_bar.png" id="8_lu6lg"]
 [ext_resource type="Texture2D" uid="uid://dmfcca6xvd18x" path="res://Sprites/progressbars/biscuit_bar_bar.png" id="8_q4k5w"]
+[ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="9_font"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1167977654]
 script = ExtResource("1_5nmq1")
@@ -48,6 +49,12 @@ offset_left = 336.35178
 offset_top = 12.129196
 offset_right = 380.55032
 offset_bottom = 45.85887
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("9_font")
+theme_override_font_sizes/font_size = 22
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -93,3 +100,41 @@ texture_under = ExtResource("7_lu6lg")
 texture_over = ExtResource("7_lfluc")
 texture_progress = ExtResource("8_lu6lg")
 texture_progress_offset = Vector2(11, 4)
+
+[node name="time_label" type="Label" parent="." unique_id=1707508146]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 10.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("9_font")
+theme_override_font_sizes/font_size = 22
+text = "TIME: 300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score_label" type="Label" parent="." unique_id=1707508145]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 142.5
+offset_top = 10.0
+offset_right = 401.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("9_font")
+theme_override_font_sizes/font_size = 22
+text = "SCORE: 000000"
+vertical_alignment = 1
