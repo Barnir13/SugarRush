@@ -5,9 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://6xjjvcj4obde" path="res://Sounds/powerup.mp3" id="3_38rej"]
 [ext_resource type="AudioStream" uid="uid://g6rpb41lpee5" path="res://Sounds/jump.wav" id="4_t1xgp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
-radius = 7.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(14.991571, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38rej"]
 radius = 6.646723
@@ -36,8 +35,8 @@ limit_right = 9999998
 limit_bottom = 9999999
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856325398]
-position = Vector2(0.0011253357, -0.0064487457)
-shape = SubResource("CapsuleShape2D_7dd06")
+position = Vector2(0.07913113, 0)
+shape = SubResource("RectangleShape2D_player")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=927232675]
 monitoring = false
