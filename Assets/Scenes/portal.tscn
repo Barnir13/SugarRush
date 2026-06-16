@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b1gl1e56xwmkh" path="res://Scripts/portal.gd" id="1_evw3l"]
 [ext_resource type="Texture2D" uid="uid://cy4j6bnie3anu" path="res://Sprites/portal.png" id="2_3qnth"]
+[ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="3_evw3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evw3l"]
 size = Vector2(45.34131, 51.81864)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prompt"]
+bg_color = Color(0.0, 0.0, 0.0, 0.55)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="portal" type="Area2D" unique_id=1149473421]
 script = ExtResource("1_evw3l")
@@ -15,3 +23,18 @@ texture = ExtResource("2_3qnth")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812196615]
 position = Vector2(0.05593109, -0.5192299)
 shape = SubResource("RectangleShape2D_evw3l")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=900000001]
+visible = false
+position = Vector2(-70.0, -74.0)
+size = Vector2(140.0, 36.0)
+z_index = 10
+theme_override_fonts/font = ExtResource("3_evw3l")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Press E to go to
+the next level"
+horizontal_alignment = 1

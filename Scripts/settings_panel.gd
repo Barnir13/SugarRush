@@ -1,6 +1,6 @@
 extends Panel
 
-signal closed
+signal closed()
 
 @onready var master_slider = $VBox/MasterRow/master_slider
 @onready var music_slider = $VBox/MusicRow/music_slider

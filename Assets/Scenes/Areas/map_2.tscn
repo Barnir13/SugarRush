@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dsxkdt77xwh2r"]
+
+[ext_resource type="Texture2D" uid="uid://cc1a8eb7w8vd2" path="res://Sprites/tiles platforms/gingerbread_tiles.png" id="1_o74uj"]
+[ext_resource type="PackedScene" uid="uid://cp7jfwb3xolen" path="res://Assets/Scenes/player.tscn" id="2_vle8b"]
+[ext_resource type="PackedScene" uid="uid://dcgmgdvsq1skj" path="res://Assets/Scenes/honey.tscn" id="6_d6mkb"]
+[ext_resource type="PackedScene" uid="uid://bdi1rfin2xm03" path="res://Assets/Scenes/portal.tscn" id="7_ple5g"]
+[ext_resource type="PackedScene" uid="uid://bffjoepv1lh2w" path="res://Assets/Scenes/chekcpoint.tscn" id="8_vh1pe"]
+[ext_resource type="PackedScene" uid="uid://cnlrwi1p11qou" path="res://Assets/Scenes/deathzone.tscn" id="10_2ldho"]
+[ext_resource type="PackedScene" uid="uid://dh4xh0gqt5043" path="res://Assets/Scenes/health_bar.tscn" id="20_ars06"]
+[ext_resource type="Texture2D" uid="uid://cbfoagdlhslxk" path="res://Sprites/background/underground_bg.png" id="21_ugbg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i225p"]
+texture = ExtResource("1_o74uj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.9357195, -8, -0.96245384)
+
+[sub_resource type="TileSet" id="TileSet_d6mkb"]
+physics_layer_0/collision_layer = 256
+sources/0 = SubResource("TileSetAtlasSource_i225p")
+
+[node name="map_2" type="Node2D" unique_id=612938413]
+metadata/_edit_vertical_guides_ = [958.0]
+
+[node name="portal" parent="." unique_id=1149473421 instance=ExtResource("7_ple5g")]
+position = Vector2(306, -265)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=777000001]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=777000002]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(400, 225)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=777000003]
+texture_filter = 1
+position = Vector2(200, -112)
+texture = ExtResource("21_ugbg")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1035359986]
+tile_set = SubResource("TileSet_d6mkb")
+format = 2
+layer_0/tile_data = PackedInt32Array(-786427, 0, 0, -786426, 0, 0, -786425, 0, 0, -786424, 0, 0, -786423, 0, 0, -851958, 0, 0, -851957, 0, 0, -786422, 0, 4, -851956, 0, 0, -851955, 0, 0, -917488, 0, 0, -917487, 0, 0, -983022, 0, 0, -983021, 0, 0, -983020, 0, 0, -1114092, 0, 3, -1114091, 0, 3, -1114090, 0, 4, -1441786, 0, 2, -1376250, 0, 2, -1310714, 0, 2, -1245178, 0, 2, -1441790, 0, 2, -1376254, 0, 2, -1310718, 0, 2, -1245182, 0, 2, -1179646, 0, 2, -1114110, 0, 2, -1048574, 0, 2, -983038, 0, 2, -917502, 0, 2, -851966, 0, 2, -786430, 0, 2, -720894, 0, 2, -1179642, 0, 2, -786428, 0, 0, -786429, 0, 0, -983029, 0, 5, -983028, 0, 5, -1114106, 0, 2, -1048570, 0, 2, -1048569, 0, 2, -1048568, 0, 2, -1114104, 0, 2, -1114105, 0, 2, -1179641, 0, 2, -983034, 0, 2)
+
+[node name="Player" parent="." unique_id=1585269502 instance=ExtResource("2_vle8b")]
+position = Vector2(72, -333)
+
+[node name="HUD" parent="." unique_id=1167977655 instance=ExtResource("20_ars06")]
+
+[node name="Deathzone" parent="." unique_id=1282808802 instance=ExtResource("10_2ldho")]
+position = Vector2(480, -29)
+
+[node name="platforms" type="Node2D" parent="." unique_id=16301696]
+
+[node name="enemies" type="Node2D" parent="." unique_id=422907896]
+
+[node name="honey" parent="enemies" unique_id=300000001 instance=ExtResource("6_d6mkb")]
+position = Vector2(104, -208)
+
+[node name="powerups" type="Node2D" parent="." unique_id=828226329]
+
+[node name="collectables" type="Node2D" parent="." unique_id=790616248]
+
+[node name="Chekcpoint" parent="." unique_id=1154004116 instance=ExtResource("8_vh1pe")]
+position = Vector2(219, -223)

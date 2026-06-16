@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://settings_panel_scr" path="res://Scripts/settings_panel.gd" id="1_set"]
 [ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="2_set"]
-[ext_resource type="Texture2D" uid="uid://cauukxg3yobjk" path="res://Sprites/progressbars/candy_bar_under.png" id="3_set"]
-[ext_resource type="Texture2D" uid="uid://co12htl2kj31m" path="res://Sprites/progressbars/candy_bar_over.png" id="4_set"]
-[ext_resource type="Texture2D" uid="uid://c0rubxtgjkiyf" path="res://Sprites/progressbars/candy_bar_bar.png" id="5_set"]
-[ext_resource type="Texture2D" uid="uid://dnkb2j2f03l5v" path="res://Sprites/hud/coin_hud.png" id="6_set"]
-[ext_resource type="Texture2D" uid="uid://b1f1ee8craxf5" path="res://Sprites/progressbars/donut_bar_under.png" id="7_set"]
-[ext_resource type="Texture2D" uid="uid://wn4fjwtpq173" path="res://Sprites/progressbars/donut_bar_over.png" id="8_set"]
-[ext_resource type="Texture2D" uid="uid://6aqjnvmk64gn" path="res://Sprites/progressbars/donut_bar_bar.png" id="9_set"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
 bg_color = Color(0.13, 0.07, 0.18, 0.96)
@@ -80,19 +73,9 @@ offset_right = 420.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="TitleIcon" type="TextureRect" parent="Header"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_set")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="TitleLabel" type="Label" parent="Header"]
 layout_mode = 0
-offset_left = 46.0
+offset_left = 16.0
 offset_top = 10.0
 offset_right = 280.0
 offset_bottom = 42.0
@@ -124,13 +107,6 @@ theme_override_constants/separation = 18
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="MasterIcon" type="TextureRect" parent="VBox/MasterRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(24, 24)
-texture = ExtResource("6_set")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="MasterLabel" type="Label" parent="VBox/MasterRow"]
 layout_mode = 2
 custom_minimum_size = Vector2(110, 0)
@@ -159,13 +135,6 @@ vertical_alignment = 1
 [node name="MusicRow" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 theme_override_constants/separation = 12
-
-[node name="MusicIcon" type="TextureRect" parent="VBox/MusicRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(24, 24)
-texture = ExtResource("9_set")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="MusicLabel" type="Label" parent="VBox/MusicRow"]
 layout_mode = 2

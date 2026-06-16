@@ -42,10 +42,18 @@ var jump_max_time := 0.0
 
 var is_dying := false
 
-# Mario kamera
+# Honey effekt
+var honey_active := false
+var honey_time_left := 0.0
+var honey_max_time := 0.0
+var _honey_id := 0
+
 var camera_left_edge: float = 0.0
 
 @export var left_boundary_margin: float = 8.0
+
+var _pause_menu_scene = preload("res://Assets/Scenes/pause_menu.tscn")
+var _pause_open := false
 
 @onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D")
 @onready var cam: Camera2D = get_node_or_null("Camera2D")
@@ -105,13 +113,39 @@ func reset_powerups():
 	set_collision_mask_value(2, true)
 
 	speed_boost = 1.0
+	honey_active = false
 
 	inv_time_left = 0.0
 	speed_time_left = 0.0
 	jump_time_left = 0.0
+	honey_time_left = 0.0
 
 	if spr:
 		spr.modulate.a = 1.0
+		spr.modulate = Color(1, 1, 1, 1)
+
+func enable_honey_effect(duration: float) -> void:
+	_honey_id += 1
+	var my_id := _honey_id
+
+	honey_active = true
+	honey_time_left = duration
+	honey_max_time = duration
+
+	# Sárgás szín jelzi a honey effektet
+	if spr:
+		spr.modulate = Color(1.0, 0.85, 0.2, 1.0)
+
+	await get_tree().create_timer(duration).timeout
+
+	if my_id != _honey_id:
+		return
+
+	honey_active = false
+	honey_time_left = 0.0
+
+	if spr:
+		spr.modulate = Color(1, 1, 1, 1)
 
 func enable_double_jump(duration: float) -> void:
 	sfx_powerup.play()
@@ -183,6 +217,13 @@ func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 	speed_time_left = 0.0
 
 func _input(event):
+	if event.is_action_pressed("pause") and not _pause_open:
+		_pause_open = true
+		var menu = _pause_menu_scene.instantiate()
+		menu.tree_exited.connect(func(): _pause_open = false)
+		get_tree().current_scene.add_child(menu)
+		return
+
 	if event.is_action_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
 
@@ -231,9 +272,14 @@ func _physics_process(delta: float) -> void:
 		elif jumps_left > 0:
 			do_jump()
 
-	direction = Input.get_axis("move_left", "move_right")
+	# Honey: megfordított irányítás + lassítás
+	if honey_active:
+		direction = Input.get_axis("move_right", "move_left")
+	else:
+		direction = Input.get_axis("move_left", "move_right")
 
-	var target_speed = direction * move_speed * speed_boost
+	var honey_slow := 0.4 if honey_active else 1.0
+	var target_speed = direction * move_speed * speed_boost * honey_slow
 
 	if is_on_floor():
 		if direction != 0:
@@ -248,6 +294,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	_update_mario_camera()
+
+	if spr and not honey_active:
+		if direction > 0:
+			spr.flip_h = false
+		elif direction < 0:
+			spr.flip_h = true
 
 func do_jump():
 	sfx_jump.play()
@@ -271,3 +323,8 @@ func update_timers(delta):
 		jump_time_left -= delta
 		if jump_time_left < 0:
 			jump_time_left = 0
+
+	if honey_time_left > 0:
+		honey_time_left -= delta
+		if honey_time_left < 0:
+			honey_time_left = 0

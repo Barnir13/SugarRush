@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dcgmgdvsq1skj"]
+
+[ext_resource type="Texture2D" uid="uid://ee8cw7p2g318" path="res://Sprites/honey.png" id="1_honey"]
+[ext_resource type="Script" uid="uid://br72kx7bbybo2" path="res://Scripts/honey.gd" id="2_honey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_honey"]
+size = Vector2(12, 28)
+
+[node name="honey" type="Sprite2D" unique_id=300000001]
+texture_filter = 1
+texture = ExtResource("1_honey")
+script = ExtResource("2_honey")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=300000002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=300000003]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_honey")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

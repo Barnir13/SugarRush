@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cct40sqstpt1w" path="res://Scripts/pause_menu.gd" id="1_pau01"]
 [ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="3_pau01"]
+[ext_resource type="PackedScene" uid="uid://settings_panel_001" path="res://Assets/Scenes/settings_panel.tscn" id="4_pau01"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -174,82 +175,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Exit"
 
-[node name="settings_panel" type="Panel" parent="." unique_id=200000007]
+[node name="settings_panel" parent="." instance=ExtResource("4_pau01") unique_id=200000007]
 visible = false
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -318.29834
-offset_top = -289.30914
-offset_right = 318.29834
-offset_bottom = 289.30914
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="master_volume" type="Label" parent="settings_panel" unique_id=200000008]
-layout_mode = 0
-offset_left = 108.477844
-offset_top = 134.5863
-offset_right = 224.47784
-offset_bottom = 183.5863
-text = "Master volume"
-
-[node name="master_slider" type="HSlider" parent="settings_panel" unique_id=200000009]
-layout_mode = 0
-offset_left = 238.32
-offset_top = 142.30887
-offset_right = 557.32
-offset_bottom = 158.30887
-min_value = -80.0
-max_value = 20.0
-
-[node name="music_volume" type="Label" parent="settings_panel" unique_id=200000010]
-layout_mode = 0
-offset_left = 108.477844
-offset_top = 183.5863
-offset_right = 215.47784
-offset_bottom = 206.5863
-text = "Music volume"
-
-[node name="music_slider" type="HSlider" parent="settings_panel" unique_id=200000011]
-layout_mode = 0
-offset_left = 238.32
-offset_top = 190.74072
-offset_right = 557.32
-offset_bottom = 206.74072
-min_value = -100.0
-max_value = 20.0
-
-[node name="close_button" type="Button" parent="settings_panel" unique_id=200000012]
-layout_mode = 0
-offset_left = 290.39996
-offset_top = 294.2588
-offset_right = 380.29834
-offset_bottom = 325.2588
-text = "Close"
-
-[node name="main_percent" type="Label" parent="settings_panel" unique_id=200000013]
-layout_mode = 0
-offset_left = 571.8654
-offset_top = 142.30887
-offset_right = 611.8654
-offset_bottom = 165.30887
-
-[node name="music_percent" type="Label" parent="settings_panel" unique_id=200000014]
-layout_mode = 0
-offset_left = 571.8654
-offset_top = 190.74072
-offset_right = 611.8654
-offset_bottom = 213.74072
 
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_pressed"]
-[connection signal="value_changed" from="settings_panel/master_slider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="settings_panel/music_slider" to="." method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="settings_panel/close_button" to="." method="_on_close_button_pressed"]
