@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb0m1yt1p8n4k"]
 
-[ext_resource type="Texture2D" uid="uid://c2tqrrn8vmjoq" path="res://Sprites/background/night_bg.jpg" id="1_ip0as"]
+[ext_resource type="Texture2D" uid="uid://ce5edjsqujks1" path="res://Sprites/background/nightstars_bg2.jpg" id="1_ip0as"]
 [ext_resource type="Texture2D" uid="uid://d3i270yfdt881" path="res://Sprites/tiles platforms/newTiles.png" id="2_g6qwd"]
 [ext_resource type="PackedScene" uid="uid://cp7jfwb3xolen" path="res://Assets/Scenes/player.tscn" id="2_vle8b"]
 [ext_resource type="PackedScene" uid="uid://bre2wiwsyrupg" path="res://Assets/Scenes/moving_platform.tscn" id="3_ukqll"]
@@ -171,14 +171,14 @@ metadata/_edit_vertical_guides_ = [958.0]
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=888000001]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=888000002]
-texture_filter = 1
-motion_scale = Vector2(0.5, 0)
-motion_mirroring = Vector2(480, 0)
+texture_filter = 2
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=888000003]
-texture_filter = 1
-position = Vector2(234, -176)
-scale = Vector2(1, 0.5749203)
+texture_filter = 2
+position = Vector2(200, 112)
+scale = Vector2(0.270453, 0.270453)
 texture = ExtResource("1_ip0as")
 
 [node name="portal" parent="." unique_id=1149473421 instance=ExtResource("15_aqxam")]
