@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ce5edjsqujks1" path="res://Sprites/background/nightstars_bg2.jpg" id="1_ip0as"]
 [ext_resource type="Texture2D" uid="uid://d3i270yfdt881" path="res://Sprites/tiles platforms/newTiles.png" id="2_g6qwd"]
 [ext_resource type="PackedScene" uid="uid://cp7jfwb3xolen" path="res://Assets/Scenes/player.tscn" id="2_vle8b"]
-[ext_resource type="PackedScene" uid="uid://bre2wiwsyrupg" path="res://Assets/Scenes/moving_platform.tscn" id="3_ukqll"]
 [ext_resource type="PackedScene" uid="uid://dfsehbseml0lg" path="res://Assets/Scenes/spike.tscn" id="4_o037k"]
 [ext_resource type="PackedScene" uid="uid://di2xx7sf3k6to" path="res://Assets/Scenes/breaking_platform_pink.tscn" id="7_aqxam"]
 [ext_resource type="PackedScene" uid="uid://d3l2xawiq0vg2" path="res://Assets/Scenes/breaking_platform_chocolate.tscn" id="8_ip0as"]
@@ -15,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dou1g41a56svu" path="res://Assets/Scenes/waffle.tscn" id="13_ycan5"]
 [ext_resource type="PackedScene" uid="uid://bdi1rfin2xm03" path="res://Assets/Scenes/portal.tscn" id="15_aqxam"]
 [ext_resource type="PackedScene" uid="uid://bffjoepv1lh2w" path="res://Assets/Scenes/chekcpoint.tscn" id="17_8jifc"]
+[ext_resource type="PackedScene" uid="uid://dsrqpqxapdo5h" path="res://Assets/Scenes/moving_platform_choco.tscn" id="18_ciglb"]
+[ext_resource type="PackedScene" uid="uid://wnh6upm8j0p6" path="res://Assets/Scenes/moving_platform_pink.tscn" id="18_yxbg1"]
 [ext_resource type="PackedScene" uid="uid://cd4tn4uajw5bd" path="res://Assets/Scenes/coin.tscn" id="19_ciglb"]
 [ext_resource type="PackedScene" uid="uid://dh4xh0gqt5043" path="res://Assets/Scenes/health_bar.tscn" id="20_ars06"]
 
@@ -137,31 +138,38 @@ texture = ExtResource("2_g6qwd")
 physics_layer_0/collision_layer = 256
 sources/0 = SubResource("TileSetAtlasSource_o74uj")
 
-[sub_resource type="Curve2D" id="Curve2D_ip0as"]
+[sub_resource type="Curve2D" id="Curve2D_tuvin"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, -8.639239, 0, 0, 0, 0, -5, -127.61289)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_8jifc"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, -8.639239, 0, 0, 0, 0, -5, -127.61289)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_ciglb"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, -8.639239, 0, 0, 0, 0, -5, -54.691254)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -176)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_yxbg1"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 83, -35.809742, 0, 0, 0, 0, 146, -35.809742)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -142)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_h1t0x"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ars06"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -77)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ciglb"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0)
 }
 point_count = 2
 
@@ -220,31 +228,31 @@ position = Vector2(1304, -197)
 
 [node name="platforms" type="Node2D" parent="." unique_id=16301695]
 
-[node name="movingPlatform" parent="platforms" unique_id=330981816 instance=ExtResource("3_ukqll")]
-position = Vector2(694, -29)
-scale = Vector2(1, 1.5358949)
-curve = SubResource("Curve2D_ip0as")
-
-[node name="movingPlatform3" parent="platforms" unique_id=528852300 instance=ExtResource("3_ukqll")]
-position = Vector2(1063, -45)
-scale = Vector2(1, 1.5358949)
-curve = SubResource("Curve2D_8jifc")
-
-[node name="movingPlatform4" parent="platforms" unique_id=38651206 instance=ExtResource("3_ukqll")]
-position = Vector2(1648, -196.99998)
-scale = Vector2(1, 1.5358949)
-curve = SubResource("Curve2D_ciglb")
-
-[node name="movingPlatform2" parent="platforms" unique_id=1956355200 instance=ExtResource("3_ukqll")]
-position = Vector2(843, -5)
-scale = Vector2(1, 1.5358949)
-curve = SubResource("Curve2D_yxbg1")
-
 [node name="breaking_platform_pink" parent="platforms" unique_id=1255920530 instance=ExtResource("7_aqxam")]
 position = Vector2(1400, -152)
 
 [node name="breaking_platform_chocolate" parent="platforms" unique_id=1063367159 instance=ExtResource("8_ip0as")]
 position = Vector2(1480, -264)
+
+[node name="movingPlatform" parent="platforms" unique_id=330981816 instance=ExtResource("18_yxbg1")]
+position = Vector2(689, -44)
+curve = SubResource("Curve2D_tuvin")
+
+[node name="movingPlatform3" parent="platforms" unique_id=925482743 instance=ExtResource("18_yxbg1")]
+position = Vector2(1056, -60)
+curve = SubResource("Curve2D_yxbg1")
+
+[node name="movingPlatform2" parent="platforms" unique_id=200181487 instance=ExtResource("18_yxbg1")]
+position = Vector2(931, -61)
+curve = SubResource("Curve2D_h1t0x")
+
+[node name="movingPlatform4" parent="platforms" unique_id=2062097215 instance=ExtResource("18_ciglb")]
+position = Vector2(1617, -207)
+curve = SubResource("Curve2D_ars06")
+
+[node name="movingPlatform5" parent="platforms" unique_id=825108844 instance=ExtResource("18_ciglb")]
+position = Vector2(1851, -285)
+curve = SubResource("Curve2D_ciglb")
 
 [node name="enemies" type="Node2D" parent="." unique_id=422907895]
 
