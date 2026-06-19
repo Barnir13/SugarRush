@@ -42,15 +42,10 @@ var jump_max_time := 0.0
 
 var is_dying := false
 
-# Honey effekt
 var honey_active := false
 var honey_time_left := 0.0
 var honey_max_time := 0.0
 var _honey_id := 0
-
-var camera_left_edge: float = 0.0
-
-@export var left_boundary_margin: float = 8.0
 
 var _pause_menu_scene = preload("res://Assets/Scenes/pause_menu.tscn")
 var _pause_open := false
@@ -78,141 +73,81 @@ func _ready() -> void:
 	if cam:
 		cam.reset_smoothing()
 		cam.position_smoothing_enabled = false
-		camera_left_edge = global_position.x - _get_half_screen_width() + cam.offset.x / cam.zoom.x
-
-func _get_half_screen_width() -> float:
-	var viewport_width = get_viewport().get_visible_rect().size.x
-	return (viewport_width / cam.zoom.x) / 2.0
-
-func _update_mario_camera() -> void:
-	if not cam:
-		return
-
-	var half_w = _get_half_screen_width()
-	var cam_offset_x = cam.offset.x / cam.zoom.x
-
-	var player_x = global_position.x
-	var cam_center_x = camera_left_edge + half_w - cam_offset_x
-
-	if player_x > cam_center_x:
-		camera_left_edge = player_x - half_w + cam_offset_x
-
-	cam.global_position.x = camera_left_edge + half_w
-
-	var left_boundary = camera_left_edge + cam_offset_x + left_boundary_margin
-	if global_position.x < left_boundary:
-		global_position.x = left_boundary
-		if velocity.x < 0:
-			velocity.x = 0
 
 func reset_powerups():
 	max_jumps = 1
 	jumps_left = 1
-
 	invincible = false
 	set_collision_mask_value(2, true)
-
 	speed_boost = 1.0
 	honey_active = false
-
 	inv_time_left = 0.0
 	speed_time_left = 0.0
 	jump_time_left = 0.0
 	honey_time_left = 0.0
-
 	if spr:
-		spr.modulate.a = 1.0
 		spr.modulate = Color(1, 1, 1, 1)
 
 func enable_honey_effect(duration: float) -> void:
 	_honey_id += 1
 	var my_id := _honey_id
-
 	honey_active = true
 	honey_time_left = duration
 	honey_max_time = duration
-
-	# Sárgás szín jelzi a honey effektet
 	if spr:
 		spr.modulate = Color(1.0, 0.85, 0.2, 1.0)
-
 	await get_tree().create_timer(duration).timeout
-
 	if my_id != _honey_id:
 		return
-
 	honey_active = false
 	honey_time_left = 0.0
-
 	if spr:
 		spr.modulate = Color(1, 1, 1, 1)
 
 func enable_double_jump(duration: float) -> void:
 	sfx_powerup.play()
-
 	_powerup_id += 1
 	var my_id := _powerup_id
-
 	max_jumps = 2
 	jumps_left = min(jumps_left + 1, max_jumps)
-
 	jump_time_left = duration
 	jump_max_time = duration
-
 	await get_tree().create_timer(duration).timeout
-
 	if my_id != _powerup_id:
 		return
-
 	max_jumps = 1
 	jumps_left = min(jumps_left, max_jumps)
-
 	jump_time_left = 0.0
 
 func enable_invincibility(duration: float) -> void:
 	sfx_powerup.play()
-
 	_inv_id += 1
 	var my_id := _inv_id
-
 	invincible = true
 	set_collision_mask_value(2, false)
-
 	inv_time_left = duration
 	inv_max_time = duration
-
 	if spr:
 		spr.modulate.a = 0.6
-
 	await get_tree().create_timer(duration).timeout
-
 	if my_id != _inv_id:
 		return
-
 	invincible = false
 	set_collision_mask_value(2, true)
-
 	inv_time_left = 0.0
-
 	if spr:
 		spr.modulate.a = 1.0
 
 func enable_speed_boost(duration: float, multiplier: float = 1.5) -> void:
 	sfx_powerup.play()
-
 	_speed_id += 1
 	var my_id := _speed_id
-
 	speed_boost = multiplier
-
 	speed_time_left = duration
 	speed_max_time = duration
-
 	await get_tree().create_timer(duration).timeout
-
 	if my_id != _speed_id:
 		return
-
 	speed_boost = 1.0
 	speed_time_left = 0.0
 
@@ -250,10 +185,8 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		var gravity = get_gravity().y * gravity_multiplier
-
 		if velocity.y > 0:
 			gravity *= fall_gravity_multiplier
-
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, max_fall_speed)
 
@@ -272,7 +205,6 @@ func _physics_process(delta: float) -> void:
 		elif jumps_left > 0:
 			do_jump()
 
-	# Honey: megfordított irányítás + lassítás
 	if honey_active:
 		direction = Input.get_axis("move_right", "move_left")
 	else:
@@ -293,7 +225,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, air_deceleration * delta)
 
 	move_and_slide()
-	_update_mario_camera()
 
 	if spr and not honey_active:
 		if direction > 0:
@@ -313,17 +244,14 @@ func update_timers(delta):
 		inv_time_left -= delta
 		if inv_time_left < 0:
 			inv_time_left = 0
-
 	if speed_time_left > 0:
 		speed_time_left -= delta
 		if speed_time_left < 0:
 			speed_time_left = 0
-
 	if jump_time_left > 0:
 		jump_time_left -= delta
 		if jump_time_left < 0:
 			jump_time_left = 0
-
 	if honey_time_left > 0:
 		honey_time_left -= delta
 		if honey_time_left < 0:

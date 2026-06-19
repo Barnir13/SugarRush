@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var coin_label = $Label
 @onready var score_label = $score_label
 @onready var time_label = $time_label
+@onready var recipe_label = $recipe_label
+@onready var recipe_icon = $recipe_icon
 
 @onready var invincible_powerup_bar = $invincible_powerup_bar
 @onready var speed_powerup_bar = $speed_powerup_bar
@@ -15,10 +17,8 @@ extends CanvasLayer
 var _pause_menu_scene = preload("res://Assets/Scenes/pause_menu.tscn")
 var _pause_open := false
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and not _pause_open:
@@ -28,22 +28,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		menu.tree_exited.connect(func(): _pause_open = false)
 		add_child(menu)
 
-
 func _process(_delta: float) -> void:
 	update_ui()
 
-
 func update_ui() -> void:
-
 	var l = GameManager.lives
-
 	heart1.visible = l >= 1
 	heart2.visible = l >= 2
 	heart3.visible = l >= 3
 
 	coin_label.text = str(GameManager.total_coins)
-
 	score_label.text = "SCORE: " + "%06d" % GameManager.score
+	recipe_label.text = str(GameManager.total_recipes)
 
 	var t = int(GameManager.time_left)
 	time_label.text = "TIME: " + "%03d" % t

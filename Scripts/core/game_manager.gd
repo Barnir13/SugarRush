@@ -1,10 +1,12 @@
 extends Node
 signal lives_changed
 signal score_changed(new_score: int)
+signal recipes_changed(new_count: int)
 
 var checkpoint_position: Vector2
 var has_checkpoint := false
 var total_coins: int = 0
+var total_recipes: int = 0
 var max_lives := 3
 var lives := 3
 var score: int = 0
@@ -12,11 +14,12 @@ var checkpoint_score: int = 0
 var collected_coins := {}
 var checkpoint_collected_coins := {}
 var checkpoint_total_coins := 0
+var checkpoint_recipes := 0
 var player: Player
 
 var _is_respawning := false
 
-var time_left: float = 300.0
+var time_left: float = 240.0
 var timer_running: bool = false
 var _time_expired := false
 
@@ -24,7 +27,7 @@ func set_player(p) -> void:
 	player = p
 
 func start_timer() -> void:
-	time_left = 210.0
+	time_left = 240.0
 	timer_running = true
 	_time_expired = false
 
@@ -53,6 +56,11 @@ func add_coin(coin_id: String, value: int = 1) -> void:
 	total_coins += value
 	add_score(200)
 
+func add_recipe() -> void:
+	total_recipes += 1
+	add_score(500)
+	emit_signal("recipes_changed", total_recipes)
+
 func add_score(amount: int) -> void:
 	score += amount
 	emit_signal("score_changed", score)
@@ -61,6 +69,7 @@ func save_checkpoint() -> void:
 	checkpoint_collected_coins = collected_coins.duplicate()
 	checkpoint_total_coins = total_coins
 	checkpoint_score = score
+	checkpoint_recipes = total_recipes
 
 func respawn_player() -> void:
 	if _is_respawning:
@@ -74,20 +83,24 @@ func respawn_player() -> void:
 		total_coins = 0
 		score = 0
 		checkpoint_score = 0
+		total_recipes = 0
+		checkpoint_recipes = 0
 		collected_coins.clear()
 		checkpoint_collected_coins.clear()
 		has_checkpoint = false
 		checkpoint_position = Vector2.ZERO
 		emit_signal("score_changed", 0)
+		emit_signal("recipes_changed", 0)
 		_is_respawning = false
 		get_tree().paused = false
 		get_tree().call_deferred("change_scene_to_file", "res://Assets/Scenes/game_over.tscn")
 	else:
-		# Visszaállítás checkpoint értékekre
 		score = checkpoint_score
 		total_coins = checkpoint_total_coins
+		total_recipes = checkpoint_recipes
 		collected_coins = checkpoint_collected_coins.duplicate()
 		emit_signal("score_changed", score)
+		emit_signal("recipes_changed", total_recipes)
 		get_tree().call_deferred("reload_current_scene")
 		await get_tree().process_frame
 		_is_respawning = false
