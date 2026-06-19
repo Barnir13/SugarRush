@@ -25,6 +25,7 @@ func _process(_delta):
 		GameManager.save_checkpoint()
 		GameManager.has_checkpoint = false
 		if next_map != "":
+			GameManager.play_portal_sound()
 			get_tree().change_scene_to_file(next_map)
 		else:
 			get_tree().change_scene_to_file("res://Assets/Scenes/end_screen.tscn")

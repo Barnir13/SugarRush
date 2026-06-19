@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cdt0jtbhwop3m" path="res://Sprites/chest/chest_closed.png" id="1_gj6j2"]
 [ext_resource type="Texture2D" uid="uid://cxj83y7f34p30" path="res://Sprites/chest/chest_open.png" id="2_bqu46"]
 [ext_resource type="Script" uid="uid://o58l3i6yoqtr" path="res://Scripts/chest.gd" id="3_bqu46"]
+[ext_resource type="FontFile" uid="uid://b12yvp8nkvyh0" path="res://SuperLegendBoy-4w8Y.ttf" id="4_font"]
+[ext_resource type="AudioStream" path="res://Sounds/chest.mp3" id="5_chest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gj6j2"]
 atlas = ExtResource("1_gj6j2")
@@ -128,6 +130,9 @@ sprite_frames = SubResource("SpriteFrames_q4ew7")
 animation = &"idle"
 script = ExtResource("3_bqu46")
 
+[node name="sfx_open" type="AudioStreamPlayer2D" parent="." unique_id=661221209]
+stream = ExtResource("5_chest")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1130416321]
 collision_layer = 0
 
@@ -137,3 +142,17 @@ shape = SubResource("RectangleShape2D_afhjx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1562977384]
 libraries/ = SubResource("AnimationLibrary_d2lal")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=700000001]
+offset_left = -44.061684
+offset_top = -24.943142
+offset_right = 44.938316
+offset_bottom = -10.981049
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Press E to open"
+horizontal_alignment = 1
