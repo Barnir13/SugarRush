@@ -45,49 +45,49 @@ texture = ExtResource("3_vh1pe")
 physics_layer_0/collision_layer = 256
 sources/1 = SubResource("TileSetAtlasSource_uqmjb")
 
-[sub_resource type="Curve2D" id="Curve2D_5ddod"]
+[sub_resource type="Curve2D" id="Curve2D_m1s2h"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -73.71387, -30.095703, 0, 0, 0, 0, 3.7802734, -56.312622)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_m1s2h"]
+[sub_resource type="Curve2D" id="Curve2D_47f4q"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -166.52466, -85.45807, 0, 0, 0, 0, -87.31323, -61.274048)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_47f4q"]
+[sub_resource type="Curve2D" id="Curve2D_qx2no"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2.1010742, -142.10077, 0, 0, 0, 0, -151, -86)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_qx2no"]
+[sub_resource type="Curve2D" id="Curve2D_orqfr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 228.77979, -306.81073, 0, 0, 0, 0, 111.04468, -186.12964)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_orqfr"]
+[sub_resource type="Curve2D" id="Curve2D_638rx"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, -23)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_638rx"]
+[sub_resource type="Curve2D" id="Curve2D_3k85l"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -109, -72)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_3k85l"]
+[sub_resource type="Curve2D" id="Curve2D_te2d8"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, -222)
@@ -108,6 +108,13 @@ texture_filter = 1
 position = Vector2(200, -112)
 texture = ExtResource("21_ugbg")
 
+[node name="Chest" parent="." unique_id=661221208 instance=ExtResource("12_wp53d")]
+position = Vector2(2704.2034, -984.3577)
+
+[node name="portal" parent="." unique_id=1149473421 instance=ExtResource("14_82rdf")]
+position = Vector2(4904.1504, -1000.9816)
+next_map = "res://Assets/Scenes/Areas/map_3.tscn"
+
 [node name="TileMap2" type="TileMap" parent="." unique_id=168974924]
 tile_set = SubResource("TileSet_d6mkb")
 format = 2
@@ -125,31 +132,31 @@ position = Vector2(480, -29)
 
 [node name="movingPlatform2" parent="platforms" unique_id=126329529 instance=ExtResource("6_uy81n")]
 position = Vector2(2385.191, -644.569)
-curve = SubResource("Curve2D_5ddod")
+curve = SubResource("Curve2D_m1s2h")
 
 [node name="movingPlatform3" parent="platforms" unique_id=25679009 instance=ExtResource("6_uy81n")]
 position = Vector2(2385.191, -644.569)
-curve = SubResource("Curve2D_m1s2h")
+curve = SubResource("Curve2D_47f4q")
 
 [node name="movingPlatform4" parent="platforms" unique_id=2014078083 instance=ExtResource("6_uy81n")]
 position = Vector2(2409, -658)
-curve = SubResource("Curve2D_47f4q")
+curve = SubResource("Curve2D_qx2no")
 
 [node name="movingPlatform6" parent="platforms" unique_id=1550073249 instance=ExtResource("6_uy81n")]
 position = Vector2(2385.191, -644.569)
-curve = SubResource("Curve2D_qx2no")
+curve = SubResource("Curve2D_orqfr")
 
 [node name="movingPlatform8" parent="platforms" unique_id=330981816 instance=ExtResource("7_5ddod")]
 position = Vector2(1420, -331)
-curve = SubResource("Curve2D_orqfr")
+curve = SubResource("Curve2D_638rx")
 
 [node name="movingPlatform9" parent="platforms" unique_id=1413286249 instance=ExtResource("7_5ddod")]
 position = Vector2(2701, -418)
-curve = SubResource("Curve2D_638rx")
+curve = SubResource("Curve2D_3k85l")
 
 [node name="movingPlatform10" parent="platforms" unique_id=543293985 instance=ExtResource("7_5ddod")]
 position = Vector2(3388, -382)
-curve = SubResource("Curve2D_3k85l")
+curve = SubResource("Curve2D_te2d8")
 
 [node name="enemies" type="Node2D" parent="." unique_id=422907896]
 
@@ -255,9 +262,6 @@ position = Vector2(3842.6775, -808.1576)
 
 [node name="collectables" type="Node2D" parent="." unique_id=790616248]
 
-[node name="Chest" parent="collectables" unique_id=661221208 instance=ExtResource("12_wp53d")]
-position = Vector2(2704.2034, -984.3577)
-
 [node name="coin" parent="collectables" unique_id=2052139229 instance=ExtResource("17_m1s2h")]
 position = Vector2(766, -349)
 
@@ -287,10 +291,6 @@ position = Vector2(4600, -968)
 
 [node name="coin10" parent="collectables" unique_id=1837940144 instance=ExtResource("17_m1s2h")]
 position = Vector2(4312, -985)
-
-[node name="portal" parent="." unique_id=1149473421 instance=ExtResource("14_82rdf")]
-position = Vector2(4904.1504, -1000.9816)
-next_map = "res://Assets/Scenes/Areas/map_3.tscn"
 
 [node name="Chekcpoint" parent="." unique_id=1154004116 instance=ExtResource("17_24csj")]
 position = Vector2(3278, -400)

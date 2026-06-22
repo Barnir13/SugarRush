@@ -36,7 +36,10 @@ func _on_side_hitbox_body_entered(body: Node) -> void:
 
 	if body.is_in_group("Player"):
 		if not ("invincible" in body and body.invincible):
-			GameManager.respawn_player()
+			if body.has_method("die_from_enemy"):
+				body.die_from_enemy()
+			else:
+				GameManager.respawn_player()
 
 
 func _on_head_hitbox_body_entered(body: Node) -> void:

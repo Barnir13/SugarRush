@@ -38,10 +38,17 @@ func _on_side_hitbox_body_entered(body: Node) -> void:
 		return
 
 	if body.is_in_group("Player"):
+		# Ha a játékos nem sebezhetetlen
 		if not ("invincible" in body and body.invincible):
+			# Ha a játékos még nem haldoklik éppen
 			if "is_dying" in body and not body.is_dying:
-				body.is_dying = true
-				GameManager.respawn_player()
+				# Megnézzük, hogy megvan-e a feldobós halál függvénye
+				if body.has_method("die_from_enemy"):
+					body.die_from_enemy() # <-- ITT INDÍTJUK EL A FELDOBÓS ANIMÁCIÓT!
+				else:
+					# Biztonsági mentés: ha nincs ilyen függvény, csak simán respawnol
+					body.is_dying = true
+					GameManager.respawn_player()
 
 func _on_head_hitbox_body_entered(body: Node) -> void:
 	if dead:

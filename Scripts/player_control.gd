@@ -41,17 +41,23 @@ var jump_time_left := 0.0
 var jump_max_time := 0.0
 
 var is_dying := false
+var _death_velocity := Vector2.ZERO
+var _death_gravity := 600.0
 
 var honey_active := false
 var honey_time_left := 0.0
 var honey_max_time := 0.0
 var _honey_id := 0
 
+var last_direction := 1 # 1 = jobbra, -1 = balra
+var is_jumping := false 
+
 var _pause_menu_scene = preload("res://Assets/Scenes/pause_menu.tscn")
 var _pause_open := false
 
-@onready var spr: Sprite2D = get_node_or_null("Node2D/Sprite2D")
+@onready var spr: AnimatedSprite2D = get_node_or_null("Node2D/Sprite2D")
 @onready var cam: Camera2D = get_node_or_null("Camera2D")
+var _death_sprite: Sprite2D = null
 
 @onready var sfx_powerup: AudioStreamPlayer2D = $sfx_powerup
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
@@ -63,6 +69,7 @@ func _ready() -> void:
 	add_to_group("Player")
 	jumps_left = max_jumps
 	is_dying = false
+	is_jumping = false
 
 	if GameManager.has_checkpoint:
 		global_position = GameManager.checkpoint_position
@@ -173,6 +180,10 @@ func _input(event):
 		set_collision_mask_value(10, true)
 
 func _physics_process(delta: float) -> void:
+	if is_dying and _death_sprite != null:
+		_death_velocity.y += _death_gravity * delta
+		global_position += _death_velocity * delta
+		return
 	if is_dying:
 		return
 
@@ -193,9 +204,23 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		coyote_timer = coyote_time
 		jumps_left = max_jumps
+		is_jumping = false
 	else:
 		coyote_timer -= delta
 
+	# ✅ 1. LEKÉRDEZZÜK AZ IRÁNYT MINDENNÉL ELŐBB (Hogy az ugrás gomb lenyomásakor már tökéletes legyen)
+	if honey_active:
+		direction = Input.get_axis("move_right", "move_left")
+	else:
+		direction = Input.get_axis("move_left", "move_right")
+
+	# ✅ 2. AZONNAL FRISSÍTJÜK A NÉZÉSI IRÁNYT
+	if direction > 0:
+		last_direction = 1
+	elif direction < 0:
+		last_direction = -1
+
+	# ✅ 3. CSAK EZUTÁN JÖN AZ UGRÁS INDÍTÁSA
 	if jump_buffer_timer > 0:
 		jump_buffer_timer -= delta
 
@@ -204,11 +229,6 @@ func _physics_process(delta: float) -> void:
 			do_jump()
 		elif jumps_left > 0:
 			do_jump()
-
-	if honey_active:
-		direction = Input.get_axis("move_right", "move_left")
-	else:
-		direction = Input.get_axis("move_left", "move_right")
 
 	var honey_slow := 0.4 if honey_active else 1.0
 	var target_speed = direction * move_speed * speed_boost * honey_slow
@@ -226,11 +246,33 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if spr and not honey_active:
-		if direction > 0:
-			spr.flip_h = false
-		elif direction < 0:
-			spr.flip_h = true
+	_update_animation()
+
+func _update_animation() -> void:
+	if not spr:
+		return
+
+	# ✅ Ha ugrásban van, ráfagyasztjuk a kezdő ugrási animációt, kormányzáskor nem engedjük felülírni
+	if is_jumping:
+		if spr.animation == "jump_right" or spr.animation == "jump_left":
+			return
+		
+		if last_direction > 0:
+			spr.play("jump_right")
+		else:
+			spr.play("jump_left")
+		return
+
+	# Sima földi animációk
+	if direction > 0:
+		spr.play("walk_right")
+	elif direction < 0:
+		spr.play("walk_left")
+	else:
+		if last_direction > 0:
+			spr.play("idle_right")
+		else:
+			spr.play("idle_left")
 
 func do_jump():
 	sfx_jump.play()
@@ -238,6 +280,43 @@ func do_jump():
 	jump_buffer_timer = 0
 	coyote_timer = 0
 	jumps_left -= 1
+	is_jumping = true
+
+	# Azonnali kényszerítés az elrugaszkodás szent pillanatában
+	if spr:
+		if last_direction > 0:
+			spr.play("jump_right")
+		else:
+			spr.play("jump_left")
+
+func die_from_enemy() -> void:
+	if is_dying:
+		return
+	is_dying = true
+
+	collision_layer = 0
+	collision_mask = 0
+
+	set_physics_process(false)
+	set_process_input(false)
+
+	if cam:
+		cam.reparent(get_tree().current_scene)
+
+	_death_sprite = Sprite2D.new()
+	_death_sprite.texture = load("res://Sprites/player/player_death.png")
+	_death_sprite.z_index = 10
+	add_child(_death_sprite)
+
+	if spr:
+		spr.visible = false
+
+	_death_velocity = Vector2(0, -200)
+
+	set_physics_process(true)
+
+	await get_tree().create_timer(2.2).timeout
+	GameManager.respawn_player()
 
 func update_timers(delta):
 	if inv_time_left > 0:

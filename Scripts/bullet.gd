@@ -9,7 +9,10 @@ func _physics_process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		GameManager.respawn_player()
+		if body.has_method("die_from_enemy"):
+			body.die_from_enemy()
+		else:
+			GameManager.respawn_player()
 
 	queue_free()
 

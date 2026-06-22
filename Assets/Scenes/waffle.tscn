@@ -120,7 +120,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvemq"]
-size = Vector2(16.635555, 2.6199417)
+size = Vector2(15.930992, 2.6199417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo1qd"]
 size = Vector2(20.432375, 14.016565)
@@ -147,7 +147,7 @@ autostart = true
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox" unique_id=849092745]
-position = Vector2(-0.2993183, -7.362191)
+position = Vector2(0.052963257, -7.362191)
 shape = SubResource("RectangleShape2D_kvemq")
 
 [node name="SideHitbox" type="Area2D" parent="." unique_id=577376167]
