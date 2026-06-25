@@ -71,6 +71,7 @@ func _ready() -> void:
 		global_position = GameManager.checkpoint_position
 	GameManager.set_player(self)
 	GameManager.start_timer()
+	BgMusic.play()
 	if cam:
 		cam.reset_smoothing()
 		cam.position_smoothing_enabled = false
