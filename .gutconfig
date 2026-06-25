@@ -1,0 +1,12 @@
+{
+  "dirs": ["res://Tests/"],
+  "prefix": "test_",
+  "suffix": ".gd",
+  "gut_on_top": false,
+  "log_level": 1,
+  "ignore_pause": false,
+  "hide_orphans": false,
+  "exit_on_finish": false,
+  "should_exit": false,
+  "should_exit_on_success": false
+}

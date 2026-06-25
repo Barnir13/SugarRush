@@ -25,6 +25,10 @@ BgMusic="*uid://drwaipdv415pp"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 jump={

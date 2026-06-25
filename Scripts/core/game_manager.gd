@@ -26,11 +26,19 @@ var _time_expired := false
 var _portal_sfx_player: AudioStreamPlayer
 var _portal_sound := preload("res://Sounds/portal.mp3")
 
+var _death_sfx_player: AudioStreamPlayer
+var _death_sound := preload("res://Sounds/death.mp3")
+
 func _ready() -> void:
 	_portal_sfx_player = AudioStreamPlayer.new()
 	_portal_sfx_player.stream = _portal_sound
 	_portal_sfx_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(_portal_sfx_player)
+
+	_death_sfx_player = AudioStreamPlayer.new()
+	_death_sfx_player.stream = _death_sound
+	_death_sfx_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(_death_sfx_player)
 
 func play_portal_sound() -> void:
 	_portal_sfx_player.play()

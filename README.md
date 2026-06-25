@@ -21,6 +21,14 @@ A játék a `Builds` mappában található `.exe` fájllal indítható.
 
 A projekt GitHub verziókezelést használ.
 
-## Megjegyzés
+## Forrásból futtatás
 
-A projektbe még a scene change-t meg kell oldani és onnatól másik 2 pályán is lehet majd játszani.
+Ha nem csak a kész build-et akarod kipróbálni, hanem szerkesztened is: telepítsd a Godot 4.6.1-et, nyisd meg a Project Manager-ben a `project.godot` fájlt, aztán F5.
+
+## Fordítás
+
+Project → Export... menüben két preset van beállítva, Windows és Web. Windows-hoz kelleni fognak az export templates, ha még nincsenek meg (Editor → Manage Export Templates).
+
+## Irányítás
+
+A/D mozgás, Space ugrás, S lemászás one-way platformról, E interakció, ESC pause.

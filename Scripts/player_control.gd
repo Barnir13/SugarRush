@@ -49,8 +49,7 @@ var honey_time_left := 0.0
 var honey_max_time := 0.0
 var _honey_id := 0
 
-var last_direction := 1 # 1 = jobbra, -1 = balra
-var is_jumping := false 
+var last_direction := 1
 
 var _pause_menu_scene = preload("res://Assets/Scenes/pause_menu.tscn")
 var _pause_open := false
@@ -65,18 +64,13 @@ var _death_sprite: Sprite2D = null
 func _ready() -> void:
 	get_tree().paused = false
 	GameManager._is_respawning = false
-
 	add_to_group("Player")
 	jumps_left = max_jumps
 	is_dying = false
-	is_jumping = false
-
 	if GameManager.has_checkpoint:
 		global_position = GameManager.checkpoint_position
-
 	GameManager.set_player(self)
 	GameManager.start_timer()
-
 	if cam:
 		cam.reset_smoothing()
 		cam.position_smoothing_enabled = false
@@ -168,6 +162,15 @@ func _input(event):
 
 	if event.is_action_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
+		var d: float
+		if honey_active:
+			d = Input.get_axis("move_right", "move_left")
+		else:
+			d = Input.get_axis("move_left", "move_right")
+		if d > 0:
+			last_direction = 1
+		elif d < 0:
+			last_direction = -1
 
 	if event.is_action_released("jump"):
 		if velocity.y < 0:
@@ -204,23 +207,19 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		coyote_timer = coyote_time
 		jumps_left = max_jumps
-		is_jumping = false
 	else:
 		coyote_timer -= delta
 
-	# ✅ 1. LEKÉRDEZZÜK AZ IRÁNYT MINDENNÉL ELŐBB (Hogy az ugrás gomb lenyomásakor már tökéletes legyen)
 	if honey_active:
 		direction = Input.get_axis("move_right", "move_left")
 	else:
 		direction = Input.get_axis("move_left", "move_right")
 
-	# ✅ 2. AZONNAL FRISSÍTJÜK A NÉZÉSI IRÁNYT
 	if direction > 0:
 		last_direction = 1
 	elif direction < 0:
 		last_direction = -1
 
-	# ✅ 3. CSAK EZUTÁN JÖN AZ UGRÁS INDÍTÁSA
 	if jump_buffer_timer > 0:
 		jump_buffer_timer -= delta
 
@@ -245,25 +244,19 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, air_deceleration * delta)
 
 	move_and_slide()
-
 	_update_animation()
 
 func _update_animation() -> void:
 	if not spr:
 		return
 
-	# ✅ Ha ugrásban van, ráfagyasztjuk a kezdő ugrási animációt, kormányzáskor nem engedjük felülírni
-	if is_jumping:
-		if spr.animation == "jump_right" or spr.animation == "jump_left":
-			return
-		
+	if not is_on_floor() and velocity.y < 0:
 		if last_direction > 0:
 			spr.play("jump_right")
 		else:
 			spr.play("jump_left")
 		return
 
-	# Sima földi animációk
 	if direction > 0:
 		spr.play("walk_right")
 	elif direction < 0:
@@ -280,9 +273,6 @@ func do_jump():
 	jump_buffer_timer = 0
 	coyote_timer = 0
 	jumps_left -= 1
-	is_jumping = true
-
-	# Azonnali kényszerítés az elrugaszkodás szent pillanatában
 	if spr:
 		if last_direction > 0:
 			spr.play("jump_right")
@@ -293,28 +283,20 @@ func die_from_enemy() -> void:
 	if is_dying:
 		return
 	is_dying = true
-
 	collision_layer = 0
 	collision_mask = 0
-
 	set_physics_process(false)
 	set_process_input(false)
-
 	if cam:
 		cam.reparent(get_tree().current_scene)
-
 	_death_sprite = Sprite2D.new()
 	_death_sprite.texture = load("res://Sprites/player/player_death.png")
 	_death_sprite.z_index = 10
 	add_child(_death_sprite)
-
 	if spr:
 		spr.visible = false
-
 	_death_velocity = Vector2(0, -200)
-
 	set_physics_process(true)
-
 	await get_tree().create_timer(2.2).timeout
 	GameManager.respawn_player()
 
