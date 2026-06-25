@@ -194,6 +194,8 @@ func _physics_process(delta: float) -> void:
 
 	if global_position.y > 2000:
 		is_dying = true
+		BgMusic.stop() 
+		GameManager.play_death_sound() 
 		GameManager.respawn_player()
 		return
 
@@ -297,6 +299,8 @@ func die_from_enemy() -> void:
 		spr.visible = false
 	_death_velocity = Vector2(0, -200)
 	set_physics_process(true)
+	BgMusic.stop()
+	GameManager.play_death_sound()
 	await get_tree().create_timer(2.2).timeout
 	GameManager.respawn_player()
 

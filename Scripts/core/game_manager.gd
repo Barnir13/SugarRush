@@ -42,6 +42,9 @@ func _ready() -> void:
 
 func play_portal_sound() -> void:
 	_portal_sfx_player.play()
+	
+func play_death_sound() -> void:
+	_death_sfx_player.play()
 
 func set_player(p) -> void:
 	player = p
@@ -123,4 +126,5 @@ func respawn_player() -> void:
 		emit_signal("recipes_changed", total_recipes)
 		get_tree().call_deferred("reload_current_scene")
 		await get_tree().process_frame
+		BgMusic.play()
 		_is_respawning = false
